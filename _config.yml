@@ -1,0 +1,19 @@
+# Site settings
+title: Simone Centellegher
+email: your-email@domain.com
+baseurl: "" # the subpath of your site, e.g. /blog
+#url: "http://yourdomain.com" # the base hostname & protocol for your site
+
+# Sidebar settings
+description: PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)
+
+# Social icons
+linkedin: scentellegher
+github: scentellegher
+twitter: simonecent
+
+# Build settings
+markdown: kramdown
+
+# Show posts with date in the future
+future: true
