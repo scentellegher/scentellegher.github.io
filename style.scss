@@ -1,0 +1,306 @@
+---
+---
+
+@import url(http://fonts.googleapis.com/css?family=Palanquin:400,700.css);
+
+/* ------------ Core -------------- */
+.main {
+    margin: auto;
+    margin-top: 50px;
+    width: 70%;
+    padding: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+#side {
+	width: 180px;
+    float: left;
+}
+
+#container {
+	margin-left: 200px;
+}
+
+.inner {
+    width: 80%;
+    margin: 0 auto; 
+}
+
+/* ------------ Sidebar -------------- */
+
+#picture {
+    width:150px;
+    height:150px;
+    opacity: 80%;
+    /*-webkit-filter: grayscale(100%);
+    filter: grayscale(100%);*/
+    border-radius:50%;
+    background-size: cover;
+    margin-bottom: 8px;
+}
+
+#social-icons {
+    font-size:  1.1em;
+    display: block;
+    margin-bottom: -12px;
+    margin-top: -12px;
+}
+
+#social-icons ul {
+    list-style: none;
+    margin: 0 auto; 
+    padding: 0px;
+}
+
+#social-icons li {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+#social-icons a {
+    font-size: 16px;
+    color: rgb(162, 163, 163);
+}
+
+#social-icons a:hover#twitter{
+	color:  #1DA1F2;
+}
+
+#social-icons a:hover#linkedin{
+	color:  #0177B5;
+}
+
+#social-icons a:hover#github{
+	color:  #333333;
+}
+
+#social-icons a:hover#cv{
+	color:  #C44E52;
+}
+
+.sidebar {
+  overflow: hidden;
+  height: 100%;
+}
+
+.menu {
+  font-size: 1.1em;
+  display: block;
+  padding-left: 15px; 
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+  
+.menu li {
+	padding: 10px;
+	list-style: none;
+	width: 0%;
+	line-height: 1.2rem;
+	font-weight: 300;
+}
+
+.menu p {
+  /*font-family: "Roboto Condensed", Arial, sans-serif;*/
+  /*font-family: Helvetica Neue,Helvetica,Arial,sans-serif;*/
+  font-family:'Palanquin',sans-serif;
+  background-color: #fff;
+  font-size: 13px;
+  line-height: normal;
+  font-style: normal;
+  color: #666666;
+  font-weight: 300;
+}
+
+.menu li a {
+  font-weight: 900;
+  font-family:'Palanquin',sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: normal;
+  font-style: normal;
+  color: #666666;
+}
+
+.menu li a:hover {
+	color: #F46524;
+}
+
+.category{
+  font-family:'Palanquin',sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: normal;
+  font-style: normal;
+  color: yellow;
+  font-weight: 300;
+
+}
+
+
+.menu hr{
+   border: 0.1px solid #CCC;
+}
+
+/* ------------ Container -------------- */
+
+.content {
+  flex: 1;
+  padding: 30px 50px;
+  font-family:'Palanquin',sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #666;
+  font-weight: 300;
+}
+
+.content hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #F7F1F1;
+    border-bottom: 1px solid #fff;
+}
+
+.content h1 {
+    font-weight: normal;
+    color: #666666;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.content h2 {
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #F46524;
+    font-weight: bold;
+}
+
+.content h3 {
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #666666;
+    font-weight: bold;
+}
+
+.content p {
+    font-family:'Palanquin',sans-serif;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    color: #666666;
+    font-weight: 300;
+}
+
+.content a {
+
+    font-family:'Palanquin',sans-serif;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: normal;
+    font-style: normal;
+    color: #F46524;
+    font-weight: 300;
+
+}
+
+.content span a {
+
+    font-family:'Palanquin',sans-serif;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: normal;
+    font-style: normal;
+    color: #337ab7;
+    font-weight: 600;
+
+}
+
+.content pre
+{
+    border:none;
+    width: 70%;
+
+    /* Generic font style */
+    font-family: Arial,sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 19.2px;
+    word-spacing: 0px;
+    color:#777777;
+}
+
+.content img
+{
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto
+
+  /*margin: 0 0 1rem;
+  border-radius: 2px;*/
+}
+
+.image-wrapper {
+  text-align: center;
+  .image-caption {
+    color: $grey-color;
+    margin-top: $spacing-unit / 3;
+  }
+}
+
+.image-wrapper p{
+  font-family: Arial,sans-serif;
+  font-size: 11px;
+}
+
+
+.biblio p{
+  font-size: 12px;
+}
+
+.biblio a{
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.biblio em{
+  font-size: 14px;
+}
+
+.biblio h3{
+  font-size: 16px;
+}
+
+.biblio h4{
+  color: #337ab7;
+}
+
+
+.share-page {
+    text-align: left;
+    background: $secondary-color;
+    color: $light-color;
+    
+    border-radius: 5px;
+    margin-top: -20px;
+    padding-bottom: 20px;
+}
+
+.share-page a{
+  padding: 5px;
+  text-decoration: none;
+}
+
+.footnotes {
+  margin-top: 40px;
+}
+
