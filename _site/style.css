@@ -1,9 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Palanquin:400,700);
+@import url(https://fonts.googleapis.com/css?family=Palanquin:400,700);
 
 /* ------------ Core -------------- */
 .main {
     margin: auto;
     margin-top: 50px;
+    min-width: 980px; 
     width: 70%;
     padding: 10px;
 }

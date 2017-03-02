@@ -6,24 +6,23 @@ subtitle: Our latest work on how personality traits affect the way we manage our
 categories: research
 ---
 
-Me and my advisor **Bruno Lepri**, in collaboration with professors **Jari Saramäki** from AAlto University, Finland, and **Eduardo López** from George Mason University, US, have recently published a new paper on the PLOS ONE journal called **"Personality Traits and Ego-network Dynamics"**. [[link]][plos-pers].
+Me and my advisor **Bruno Lepri**, in collaboration with professors **Jari Saramäki** from Aalto University, Finland, and **Eduardo López** from George Mason University, US, have recently published a new paper on the PLOS ONE journal called **"Personality Traits and Ego-network Dynamics"**. [[link]][plos-pers].
 
-In this work we were interested in understanding whether and how personality traits affect the way we manage our social relationships. We interact with a wide network of people on a daily basis, and these social relationships play an important role in our lives. The problem is that there are costs in their maintenance. 
+In this work we were interested in understanding whether and how personality traits affect the way we manage our social relationships. As we know, we interact with a wide network of people on a daily basis, and these social relationships play an important role in our lives. The problem is that there are costs in their maintenance. 
 
-We were interested in understanding how the personality traits of individuals affect this picture. In order to do so, we combined detailed mobile phone call records with personality traits scores collected by means of surveys, from participants of the **Mobile Territorial Lab (MTL)** study[^1].
+But how individuals' personality traits affect this picture? In order to find an answer, we combined detailed mobile phone call records with personality traits scores collected by means of surveys, from participants of the **Mobile Territorial Lab (MTL)** study[^1].
 The MTL was a living laboratory that took place in Trento, Italy, in collaboration with **Fondazione Bruno Kessler (FBK)**, **MIT**, **TIM** and **Telefónica**, and observed the lives of 142 parents through multiple channels for more than two years. The data was collected from smartphones, questionnaires and experience sampling probes. In particular, they tracked social interactions (e.g. call and SMS communications), mobility routines and spending patterns. The data was than used to create a multi-layered view of the lives of the study participants.
 
 We modeled the patterns of mobile phone interactions of individuals as **social signatures** defined by Saramäki et al.[^2] as
 > "*[...] the way that egos divide their communication efforts among alters and how persistent the observed patterns are over time.*"
 
-Possible explanations on how persistent these communication patterns are over time, and thus how we allocate our efforts in maintaining our social relationships could be explained by
+Possible explanations on how persistent these communication patterns are over time, and thus how we allocate our efforts in maintaining our social relationships, could be explained by different factors such as
 * Time constraints
 * Cognitive constraints
 * **Differences in personality**
-* ...
 
-All the individuals' personality has been measured by the Big Five model, a model that describes the personality of an individual with five dimensions defined as Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, also known as OCEAN.
-If interested, there is a nice [TED talk][ted-little] by professor Brian Little about the OCEAN personality types, where he focus on the differences between introverts and extroverts. 
+All the individuals' personality has been measured by the Big Five model, a model that describes the personality of an individual with five dimensions defined as Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, also known as OCEAN.\\
+(If interested, there is a nice [TED talk][ted-little] by professor Brian Little about the OCEAN personality types, where he focus on the differences between introverts and extroverts). 
 
 During all the analysis, we followed the assumption that individuals in the extreme of the scale for a given trait would exhibit largest differences in communication patterns. Therefore, we identify for each of the Big Five personality traits people falling in the 25th percentile (low personality scores) and the 75th percentile (high personality scores). Thus, for example, for the Extraversion trait we found the most extroverted and the most introverted individuals.
 
@@ -42,12 +41,12 @@ Experience trait, where **people that are willing to try new experiences exhibit
 
 {% include image.html
    img="/assets/images/post/openness_turnover.png"
-   caption="Fig 1. Openness to Experience and network turnover. Individuals who are more open to experience show higher turnover as compared to the lowest-scoring 25%. Left:  the estimated probability density functions of the distributions of network turnover in egocentric networks.  Right:  violin plots of the same distributions."
+   caption="Fig 1. Openness to Experience and network turnover. Individuals who are more open to experience show a higher turnover as compared to the lowest-scoring 25%. Left:  the estimated probability density functions of the distributions of network turnover in egocentric networks.  Right:  violin plots of the same distributions."
 %}
 
 ### Rank Dynamics
 Here, we take a detailed look at what happens inside the network of a focal ego by focusing at the alters
-rank dynamics and subsequently we analyze the effect of personality traits on such  dynamics. In order to do this, for two consecutive temporal intervals for each ego, we build a transition matrix as  follows:  if  there  is  a  transition  of  an alter from rank *i* to rank *j* in consecutive intervals then we assign the value 1 to that particular transition.
+rank dynamics and subsequently we analyze the effect of personality traits on such  dynamics. In order to do this, for two consecutive temporal intervals of each ego, we build a transition matrix as  follows:  if  there  is  a  transition  of  an alter from rank *i* to rank *j* in consecutive intervals then we assign the value 1 to that particular transition.
 We then used the transition matrices of egos to represent the alter rank variations of entire subgroups. We simply sum the matrices of all egos in the subgroup and normalize them by the number of egos in that particular subgroup, in order to have probabilities on both rows and columns.
 The resulting matrix now contains the alters rank dynamics represented as probabilities of moving up and down rank positions. 
 
@@ -62,7 +61,7 @@ The resulting matrix now contains the alters rank dynamics represented as probab
 Fig 2. shows the transition matrix of the entire population under study. We can clearly see that for the top ranks, the probability mass is clearly concentrated on the diagonal, meaning that the top ranks are more stable.  This is expected, since people in the top positions of the network are the people that a particular ego contacts
 more frequently, such as for example family members, and these relationships are expected to be more close and stable. 
 
-Adding the personality traits dimension, it seems that **people that show a higher disposition to curiosity and willingness to experiment new things tend to be less stable** regarding the set of alters that they communicate with with respect their counterpart. We have similar results with the Agreeableness personality trait where **agreeable people tend to have a  higher spread, namely larger rank dynamics with respect their counterpart**.
+Adding the personality traits dimension, it seems that **people that show a higher disposition to curiosity and willingness to experiment new things tend to be less stable** regarding the set of alters that they communicate with, as compared to their counterpart. We have similar results with the Agreeableness personality trait, where **agreeable people tend to have a  higher spread, namely larger rank dynamics with respect their counterpart**.
 
 
 {% include image.html
