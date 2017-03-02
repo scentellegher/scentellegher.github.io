@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Personality Traits and Ego-network Dynamics"
-date:   2017-03-02 00:00:00
+date:   2017-03-03 00:00:00
 subtitle: Our latest work on how personality traits affect the way we manage our social relationships published on the PLOS ONE journal!
 categories: research
 ---
@@ -61,7 +61,7 @@ The resulting matrix now contains the alters rank dynamics represented as probab
 Fig 2. shows the transition matrix of the entire population under study. We can clearly see that for the top ranks, the probability mass is clearly concentrated on the diagonal, meaning that the top ranks are more stable.  This is expected, since people in the top positions of the network are the people that a particular ego contacts
 more frequently, such as for example family members, and these relationships are expected to be more close and stable. 
 
-Adding the personality traits dimension, it seems that **people that show a higher disposition to curiosity and willingness to experiment new things tend to be less stable** regarding the set of alters that they communicate with, as compared to their counterpart. We have similar results with the Agreeableness personality trait, where **agreeable people tend to have a  higher spread, namely larger rank dynamics with respect their counterpart**.
+Adding the personality traits dimension, it seems that **people that show a higher disposition to curiosity and willingness to experiment new things tend to be less stable** regarding the set of alters that they communicate with, as compared to their counterpart. We have similar results with the Agreeableness personality trait, where **agreeable people tend to have a higher spread, namely larger rank dynamics with respect their counterpart**.
 
 
 {% include image.html
