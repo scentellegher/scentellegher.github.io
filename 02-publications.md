@@ -9,7 +9,7 @@ permalink: /publications
 >#### __Personality Traits and Ego-network Dynamics.__
 >*Centellegher, S., López, E., Saramäki, J., Lepri, B.*\\
 We interact with a wide network of people on a daily basis, and these social relationships play an important functional role in our lives. However, there are costs to their maintenance, resulting in a trade-off between quality and quantity, a typical strategy being to put a lot of effort on a few high-intensity relationships while maintaining larger numbers of less close relationships.  Here, we focus on how personality traits of individuals affect this picture, using mobile phone calls records and survey data from the Mobile Territorial Lab (MTL) study. On broader terms, our study shows that personality traits clearly affect the ways in which individuals maintain their personal networks.\\
-[[arXiv]][arxiv-pers] **[NetSciX 2017 (Tel-Aviv)]**
+[[PLOS ONE]][plos-pers] [[arXiv]][arxiv-pers] **[NetSciX 2017 (Tel-Aviv)]**
 
 ### 2016
 
@@ -27,6 +27,7 @@ This paper presents ETSCH, a novel paradigm for processing large graphs. ETSCH d
 [[Proc. of the 2nd International Conference on Cloud and Big Data Computing]][cbdcom-etsch]
 
 
+[plos-pers]: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110
 [arxiv-pers]: https://arxiv.org/abs/1702.06458
 [epj-mtl]: http://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-016-0064-6
 [cbdcom-etsch]: http://disi.unitn.it/~montreso/pubs/papers/cbdcom16.pdf
