@@ -82,5 +82,5 @@ In this post I have briefly presented some of the results of our study, omitting
 
 
 
-[plos-pers]: http://www.google.com
+[plos-pers]: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110
 [ted-little]: https://www.ted.com/talks/brian_little_who_are_you_really_the_puzzle_of_personality
