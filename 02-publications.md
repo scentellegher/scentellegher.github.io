@@ -9,7 +9,7 @@ permalink: /publications
 >#### __Personality Traits and Ego-network Dynamics.__
 >*Centellegher, S., López, E., Saramäki, J., Lepri, B.*\\
 We interact with a wide network of people on a daily basis, and these social relationships play an important functional role in our lives. However, there are costs to their maintenance, resulting in a trade-off between quality and quantity, a typical strategy being to put a lot of effort on a few high-intensity relationships while maintaining larger numbers of less close relationships.  Here, we focus on how personality traits of individuals affect this picture, using mobile phone calls records and survey data from the Mobile Territorial Lab (MTL) study. On broader terms, our study shows that personality traits clearly affect the ways in which individuals maintain their personal networks.\\
-[[PLOS ONE]][plos-pers] [[arXiv]][arxiv-pers] **[NetSciX 2017 (Tel-Aviv)]**
+[[PLOS ONE]][plos-pers] [[arXiv]][arxiv-pers] **[NetSciX 2017]** **[NetMob]**
 
 ### 2016
 

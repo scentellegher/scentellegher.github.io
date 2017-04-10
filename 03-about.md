@@ -13,6 +13,7 @@ permalink: /about
 * *2008-2012 -* *Computer Science*{: style="color: #337ab7"}, University of Trento, Italy, Bachelor’s degree
 
 **Research Stays & Attendance to Schools and Conferences**
-* *Jan 2017 -* *NetSciX 2017 Conference*{: style="color: #337ab7"}, Tel-Aviv, Israel, Oral Presentation in the parallel session Social and political networks.  
+* *Apr 2017 -* *NetMob Conference*{: style="color: #337ab7"}, Milan, Italy, Oral Presentation in the *Social networks* session.  
+* *Jan 2017 -* *NetSciX 2017 Conference*{: style="color: #337ab7"}, Tel-Aviv, Israel, Oral Presentation in the parallel session *Social and political networks*.  
 * *Aug 2016-Sep 2016 -* *Scalable Cooperation group, MIT Media Lab*{: style="color: #337ab7"}, Cambridge, MA, US, Visiting Student.
 * *May 2016 -* *Complex network: theory, methods and applications II*{: style="color: #337ab7"}, Como, Italy, Summer School.
