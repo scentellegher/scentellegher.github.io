@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-04-10T12:58:54+02:00</updated><id>http://localhost:4000/</id><title type="html">Simone Centellegher</title><subtitle>PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)</subtitle><entry><title type="html">Personality Traits and Ego-network Dynamics</title><link href="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html" rel="alternate" type="text/html" title="Personality Traits and Ego-network Dynamics" /><published>2017-03-03T01:00:00+01:00</published><updated>2017-03-03T01:00:00+01:00</updated><id>http://localhost:4000/research/2017/03/03/personality-and-ego-network</id><content type="html" xml:base="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html">&lt;p&gt;Me and my advisor &lt;strong&gt;Bruno Lepri&lt;/strong&gt;, in collaboration with professors &lt;strong&gt;Jari Saramäki&lt;/strong&gt; from Aalto University, Finland, and &lt;strong&gt;Eduardo López&lt;/strong&gt; from George Mason University, US, have recently published a new paper on the PLOS ONE journal called &lt;strong&gt;“Personality Traits and Ego-network Dynamics”&lt;/strong&gt;. &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110&quot;&gt;[link]&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-24T16:06:08+02:00</updated><id>http://localhost:4000/</id><title type="html">Simone Centellegher</title><subtitle>PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)</subtitle><entry><title type="html">Pandas &amp;amp; Matplotlib: personalize the date format in a bar chart</title><link href="http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates.html" rel="alternate" type="text/html" title="Pandas &amp; Matplotlib: personalize the date format in a bar chart" /><published>2017-05-24T02:00:00+02:00</published><updated>2017-05-24T02:00:00+02:00</updated><id>http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates</id><content type="html" xml:base="http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates.html">&lt;p&gt;Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/bar_chart_formatted_dates/Bar_chart_with_formatted_dates.ipynb&quot;&gt;[notebook]&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;For this purpose I downloaded the timeseries of the Game of Thrones Wikipedia page views during Season 7 from &lt;a href=&quot;https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&amp;amp;platform=all-access&amp;amp;agent=user&amp;amp;range=latest-20&amp;amp;pages=Cat|Dog&quot;&gt;[here]&lt;/a&gt;.
+At first I simply plotted a line chart using this code:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#import libraries&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pd&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.dates&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;mdates&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#read data from csv&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'data.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;usecols&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'count'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parse_dates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#set date as index&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inplace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#plot data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#set ticks every week&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xaxis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_major_locator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mdates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeekdayLocator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#set major ticks format&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xaxis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_major_formatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mdates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateFormatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;b &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/line_plot.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 1. Here you can see the number of page views of the Game of Thrones Wikipedia page. We can clearly see the peaks in the proximity of each episodes!&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;As you can see everything seems fine, the labels on the x-axis are well formatted with a label every week. What if we want to plot a bar chart instead? We can try to use the option &lt;strong&gt;kind=’bar’&lt;/strong&gt; in the pandas &lt;em&gt;plot()&lt;/em&gt; function&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'bar'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;When we run the code again, we have the following error:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;ValueError: DateFormatter found a value of x=0, which is an illegal date.  This usually occurs because you have not informed the axis that it is plotting dates, e.g., with ax.xaxis_date()&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;and adding &lt;strong&gt;ax.xaxis_date()&lt;/strong&gt; as suggested does not solve the problem! I tried to make the code work with the pandas &lt;em&gt;plot()&lt;/em&gt; function but I couldn’t find a solution. So after spending some time looking around, I decided to give up and started to use the matplotlib &lt;em&gt;bar()&lt;/em&gt; function&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'count'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;This is what we have&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/wrong_bar_plot.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 2. We need to fix the date format!&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;The date labels formatted in this way are ugly! So let’s use the matplotlib &lt;strong&gt;DateFormatter&lt;/strong&gt; to make them prettier…&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#set ticks every week&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xaxis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_major_locator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mdates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WeekdayLocator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#set major ticks format&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xaxis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_major_formatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mdates&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateFormatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;b &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/bar_plot.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 3. Finally!&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;… and that’s it! I hope this would help! Here you can find the code and the data that generated the plot in Fig 3. &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/bar_chart_formatted_dates/Bar_chart_with_formatted_dates.ipynb&quot;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;NOTE: If you are interseted in a short and clear way to understand the python visualization world with pandas and matplotlib here there is a great &lt;a href=&quot;http://pbpython.com/effective-matplotlib.html&quot;&gt;resource&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this [notebook])</summary></entry><entry><title type="html">Personality Traits and Ego-network Dynamics</title><link href="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html" rel="alternate" type="text/html" title="Personality Traits and Ego-network Dynamics" /><published>2017-03-03T01:00:00+01:00</published><updated>2017-03-03T01:00:00+01:00</updated><id>http://localhost:4000/research/2017/03/03/personality-and-ego-network</id><content type="html" xml:base="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html">&lt;p&gt;Me and my advisor &lt;strong&gt;Bruno Lepri&lt;/strong&gt;, in collaboration with professors &lt;strong&gt;Jari Saramäki&lt;/strong&gt; from Aalto University, Finland, and &lt;strong&gt;Eduardo López&lt;/strong&gt; from George Mason University, US, have recently published a new paper on the PLOS ONE journal called &lt;strong&gt;“Personality Traits and Ego-network Dynamics”&lt;/strong&gt;. &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110&quot;&gt;[link]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this work we were interested in understanding whether and how personality traits affect the way we manage our social relationships. As we know, we interact with a wide network of people on a daily basis, and these social relationships play an important role in our lives. The problem is that there are costs in their maintenance.&lt;/p&gt;
 

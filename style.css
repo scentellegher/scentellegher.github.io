@@ -228,7 +228,7 @@
 .content pre
 {
     border:none;
-    width: 70%;
+    width: 100%;
 
     /* Generic font style */
     font-family: Arial,sans-serif;

@@ -14,6 +14,12 @@ twitter: simonecent
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  hard_wrap: true
 
 # Show posts with date in the future
 future: true
+
+
