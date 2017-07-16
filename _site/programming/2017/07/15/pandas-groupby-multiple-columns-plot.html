@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Pandas: plot the values of a groupby on multiple columns</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/syntax.css">
+  <link rel="canonical" href="http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html">
+  <link rel="alternate" type="application/rss+xml" title="Simone Centellegher" href="http://localhost:4000/feed.xml">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.x-git.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+  
+  <body>   
+    <div class='main'>
+        <div id='side'>
+            <div class='sidebar menu'>
+
+  <div id="picture" style="background-image: url(/assets/images/avatar.jpg)"></div>
+    
+  <p>PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)</p>
+
+  <hr>
+
+  <div id="social-icons">
+    <div class='inner'>
+      <ul>
+          <li>
+            <a id='twitter' href="http://twitter.com/simonecent" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a id='linkedin' href="https://it.linkedin.com/in/scentellegher" target="_blank">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a id='github' href="http://github.com/scentellegher" target="_blank">
+              <i class="fa fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a id='cv' href="/assets/cv/simone_centellegher_CV.pdf" target="_blank">
+              <i class="fa fa-file-text-o"></i>
+            </a>
+          </li>    
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="navigation">
+    <ul>
+      
+        
+            <li><a href="/">Blog</a></li>
+        
+      
+        
+            <li><a href="/publications">Publications</a></li>
+        
+      
+        
+            <li><a href="/about">About</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="navigation">
+    <ul>
+      
+        <li><a style='font-weight: 300;' href="/categories/research">research</a></li>
+      
+        <li><a style='font-weight: 300;' href="/categories/programming">programming</a></li>
+      
+    </ul>
+  </div> 
+
+  <hr>
+
+  <p>Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> </p>
+</div>
+        </div>
+        <div id='container' class='content'>
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+     <h2 style="color: #337ab7" class="post-title">Pandas: plot the values of a groupby on multiple columns</h2>
+     <p class="post-meta"><time datetime="2017-07-15T01:00:00+01:00" itemprop="datePublished">Jul 15, 2017</time></p>
+     <hr>
+  </header>
+  <div class="share-page">
+    Share this on &rarr;
+    <a href="https://twitter.com/intent/tweet?text=Pandas: plot the values of a groupby on multiple columns&url=http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html&via=simonecent&related=simonecent" rel="nofollow" target="_blank" title="Share on Twitter" style="color:  #1DA1F2;">
+    	<i class="fa fa-twitter fa-lg"></i>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=http://localhost:4000//programming/2017/07/15/pandas-groupby-multiple-columns-plot.html&title=Pandas: plot the values of a groupby on multiple columns" rel="nofollow" target="_blank" title="Share on Facebook" style='color: #4867AA;'>
+    	<i class="fa fa-facebook fa-lg"></i>
+    </a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html" rel="nofollow" target="_blank" title="Share on Google+" style='color: #DD4B39;'>
+    	<i class="fa fa-google-plus fa-lg"></i>
+    </a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html&title=Pandas: plot the values of a groupby on multiple columns" target="_blank" title="Share on LinkedIn" style='color: #0177B5;'>
+    	<i class="fa fa-linkedin fa-lg"></i>
+    </a>
+    <a href="http://www.reddit.com/submit?url=http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html&title=Pandas: plot the values of a groupby on multiple columns" rel="nofollow" target="_blank" title="Share on Reddit" style='color: #FF4500;'>
+    	<i class="fa fa-reddit fa-lg"></i>
+    </a>
+</div>
+
+
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This is just a pandas programming note that explains how to plot in a fast way different categories contained in a groupby on multiple columns, generating a two level MultiIndex.</p>
+
+<p>Suppose you have a dataset containing credit card transactions, including:</p>
+<ul>
+  <li>the date of the transaction</li>
+  <li>the credit card number</li>
+  <li>the type of the expense</li>
+  <li>the amount of the transaction</li>
+</ul>
+
+<p>Since this kind of data it is not freely available for privacy reasons, I generated a fake dataset using the python library <a href="https://github.com/joke2k/faker">Faker</a>, that generates fake data for you. In Fig 1. you can see such generated data.</p>
+
+<div class="image-wrapper">
+    
+        <img src="http://localhost:4000//assets/images/post/data_unstack.png" width="350" height="auto" alt="" />
+    
+    
+        <p class="image-caption">Fig 1. Data generated with the python module Faker.</p>
+    
+</div>
+
+<p>Now suppose we would like to see the daily number of transactions made for each expense type. How can we do that? Well it is pretty simple, we just need to use the <strong>groupby()</strong> method, grouping the data by <em>date</em> and <em>type</em> and then plot it!</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#plot data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'date'</span><span class="p">,</span><span class="s">'type'</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s">'amount'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Let’s see the result!</p>
+
+<div class="image-wrapper">
+    
+        <img src="http://localhost:4000//assets/images/post/plot_without_unstack.jpeg" width="" height="" alt="" />
+    
+    
+        <p class="image-caption">Fig 2. Uhm.. there is something wrong..</p>
+    
+</div>
+
+<p>What happend here? We have just one line! This probably means that there is something wrong in how the data is represented in our dataframe..  <br />
+In Fig 3. (left), we have an excerpt of our dataframe after we apply the <em>groupby()</em> to the data. As we can see, the daily category are correctly grouped, but we do not have a series of value for each expense type!  <br />
+ How can we do that? We can use the <em>unstack()</em> method (<a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.unstack.html">doc</a>).  <br />
+ What this function does is basically pivoting a level of the row index (in this case the type of the expense) to the column axis as shown in Fig 3. (right).</p>
+
+<div class="image-wrapper">
+    
+        <img src="http://localhost:4000//assets/images/post/vs_unstack.png" width="" height="" alt="" />
+    
+    
+        <p class="image-caption">Fig 3. Our grouped data before (left) and after applying the unstack() method (right)</p>
+    
+</div>
+
+<p>If you want to understand more about stacking, unstacking and pivoting tables with Pandas, give a look at this nice explanation given by Nikolay Grozev in his <a href="http://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/">post</a>.<br />
+Now since our data is correctly represented, we can finally plot the daily number of transactions made for each expense type:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># plot data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="c"># use unstack()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'date'</span><span class="p">,</span><span class="s">'type'</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s">'amount'</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="image-wrapper">
+    
+        <img src="http://localhost:4000//assets/images/post/plot_with_unstack.png" width="" height="" alt="" />
+    
+    
+        <p class="image-caption">Fig 4. Our final plot!</p>
+    
+</div>
+
+<p>You can see the complete code in this <a href="https://github.com/scentellegher/code_snippets/blob/master/pandas_groupby_unstack/Plot_groupby_multiple_columns_unstack.ipynb">[notebook]</a>)</p>
+
+
+  </div>
+
+  <!-- To enable Disqus comments, comment out this code and insert your Disqus shortname -->
+
+  <!--  -->
+
+</article>
+    
+        </div>    
+        <div class='clear'></div>
+    </div>
+    
+    
+  </body>
+  
+</html>
+
+   

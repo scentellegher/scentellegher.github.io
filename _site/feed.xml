@@ -1,6 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-24T16:06:08+02:00</updated><id>http://localhost:4000/</id><title type="html">Simone Centellegher</title><subtitle>PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)</subtitle><entry><title type="html">Pandas &amp;amp; Matplotlib: personalize the date format in a bar chart</title><link href="http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates.html" rel="alternate" type="text/html" title="Pandas &amp; Matplotlib: personalize the date format in a bar chart" /><published>2017-05-24T02:00:00+02:00</published><updated>2017-05-24T02:00:00+02:00</updated><id>http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates</id><content type="html" xml:base="http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates.html">&lt;p&gt;Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/bar_chart_formatted_dates/Bar_chart_with_formatted_dates.ipynb&quot;&gt;[notebook]&lt;/a&gt;)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-16T15:19:49+01:00</updated><id>http://localhost:4000/</id><title type="html">Simone Centellegher</title><subtitle>PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)</subtitle><entry><title type="html">Pandas: plot the values of a groupby on multiple columns</title><link href="http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html" rel="alternate" type="text/html" title="Pandas: plot the values of a groupby on multiple columns" /><published>2017-07-15T01:00:00+01:00</published><updated>2017-07-15T01:00:00+01:00</updated><id>http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns%20-plot</id><content type="html" xml:base="http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html">&lt;p&gt;This is just a pandas programming note that explains how to plot in a fast way different categories contained in a groupby on multiple columns, generating a two level MultiIndex.&lt;/p&gt;
 
-&lt;p&gt;For this purpose I downloaded the timeseries of the Game of Thrones Wikipedia page views during Season 7 from &lt;a href=&quot;https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&amp;amp;platform=all-access&amp;amp;agent=user&amp;amp;range=latest-20&amp;amp;pages=Cat|Dog&quot;&gt;[here]&lt;/a&gt;.
+&lt;p&gt;Suppose you have a dataset containing credit card transactions, including:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;the date of the transaction&lt;/li&gt;
+  &lt;li&gt;the credit card number&lt;/li&gt;
+  &lt;li&gt;the type of the expense&lt;/li&gt;
+  &lt;li&gt;the amount of the transaction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since this kind of data it is not freely available for privacy reasons, I generated a fake dataset using the python library &lt;a href=&quot;https://github.com/joke2k/faker&quot;&gt;Faker&lt;/a&gt;, that generates fake data for you. In Fig 1. you can see such generated data.&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/data_unstack.png&quot; width=&quot;350&quot; height=&quot;auto&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 1. Data generated with the python module Faker.&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;Now suppose we would like to see the daily number of transactions made for each expense type. How can we do that? Well it is pretty simple, we just need to use the &lt;strong&gt;groupby()&lt;/strong&gt; method, grouping the data by &lt;em&gt;date&lt;/em&gt; and &lt;em&gt;type&lt;/em&gt; and then plot it!&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#plot data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let’s see the result!&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/plot_without_unstack.jpeg&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 2. Uhm.. there is something wrong..&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;What happend here? We have just one line! This probably means that there is something wrong in how the data is represented in our dataframe..  &lt;br /&gt;
+In Fig 3. (left), we have an excerpt of our dataframe after we apply the &lt;em&gt;groupby()&lt;/em&gt; to the data. As we can see, the daily category are correctly grouped, but we do not have a series of value for each expense type!  &lt;br /&gt;
+ How can we do that? We can use the &lt;em&gt;unstack()&lt;/em&gt; method (&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.unstack.html&quot;&gt;doc&lt;/a&gt;).  &lt;br /&gt;
+ What this function does is basically pivoting a level of the row index (in this case the type of the expense) to the column axis as shown in Fig 3. (right).&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/vs_unstack.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 3. Our grouped data before (left) and after applying the unstack() method (right)&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;If you want to understand more about stacking, unstacking and pivoting tables with Pandas, give a look at this nice explanation given by Nikolay Grozev in his &lt;a href=&quot;http://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/&quot;&gt;post&lt;/a&gt;.&lt;br /&gt;
+Now since our data is correctly represented, we can finally plot the daily number of transactions made for each expense type:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# plot data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# use unstack()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unstack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/plot_with_unstack.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 4. Our final plot!&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;You can see the complete code in this &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/pandas_groupby_unstack/Plot_groupby_multiple_columns_unstack.ipynb&quot;&gt;[notebook]&lt;/a&gt;)&lt;/p&gt;</content><author><name></name></author><summary type="html">This is just a pandas programming note that explains how to plot in a fast way different categories contained in a groupby on multiple columns, generating a two level MultiIndex.</summary></entry><entry><title type="html">Pandas: plot the values of a groupby on multiple columns</title><link href="http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html" rel="alternate" type="text/html" title="Pandas: plot the values of a groupby on multiple columns" /><published>2017-07-15T01:00:00+01:00</published><updated>2017-07-15T01:00:00+01:00</updated><id>http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns%20-plot</id><content type="html" xml:base="http://localhost:4000/programming/2017/07/15/pandas-groupby-multiple-columns-plot.html">&lt;p&gt;This is just a pandas programming note that explains how to plot in a fast way different categories contained in a groupby on multiple columns, generating a two level MultiIndex.&lt;/p&gt;
+
+&lt;p&gt;Suppose you have a dataset containing credit card transactions, including:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;the date of the transaction&lt;/li&gt;
+  &lt;li&gt;the credit card number&lt;/li&gt;
+  &lt;li&gt;the type of the expense&lt;/li&gt;
+  &lt;li&gt;the amount of the transaction&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since this kind of data it is not freely available for privacy reasons, I generated a fake dataset using the python library &lt;a href=&quot;https://github.com/joke2k/faker&quot;&gt;Faker&lt;/a&gt;, that generates fake data for you. In Fig 1. you can see such generated data.&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/data_unstack.png&quot; width=&quot;350&quot; height=&quot;auto&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 1. Data generated with the python module Faker.&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;Now suppose we would like to see the daily number of transactions made for each expense type. How can we do that? Well it is pretty simple, we just need to use the &lt;strong&gt;groupby()&lt;/strong&gt; method, grouping the data by &lt;em&gt;date&lt;/em&gt; and &lt;em&gt;type&lt;/em&gt; and then plot it!&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#plot data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Let’s see the result!&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/plot_without_unstack.jpeg&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 2. Uhm.. there is something wrong..&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;What happend here? We have just one line! This probably means that there is something wrong in how our data is represented in our dataframe.. In Fig 3. (left), we have an excerpt of our dataframe after we apply the &lt;em&gt;groupby()&lt;/em&gt; to the data. As we can see, the daily category are correctly grouped, but we do not have a series of value for each expense type! How can we do that? We can use the &lt;em&gt;unstack()&lt;/em&gt; method (&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.unstack.html&quot;&gt;doc&lt;/a&gt;). What this function does is basically pivoting a level of the row index (in this case the type of the expense) to the column axis as shown in Fig 3. (right).&lt;/p&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/vs_unstack.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 3. Our grouped data before (left) and after applying the unstack() method (right)&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;If you want to understand more about stacking, unstacking and pivoting tables with Pandas, give a look at this nice explanation given by Nikolay Grozev in his &lt;a href=&quot;http://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/&quot;&gt;post&lt;/a&gt;.&lt;br /&gt;
+Now since our data is correctly represented we can finally plot the daily number of transactions made for each expense type:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# plot data&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# use unstack()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groupby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'amount'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unstack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    
+        &lt;img src=&quot;http://localhost:4000//assets/images/post/plot_with_unstack.png&quot; width=&quot;&quot; height=&quot;&quot; alt=&quot;&quot; /&gt;
+    
+    
+        &lt;p class=&quot;image-caption&quot;&gt;Fig 4. Our final plot!&lt;/p&gt;
+    
+&lt;/div&gt;
+
+&lt;p&gt;You can see the complete code in this &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/pandas_groupby_unstack/Plot_groupby_multiple_columns_unstack.ipynb&quot;&gt;[notebook]&lt;/a&gt;)&lt;/p&gt;</content><author><name></name></author><summary type="html">This is just a pandas programming note that explains how to plot in a fast way different categories contained in a groupby on multiple columns, generating a two level MultiIndex.</summary></entry><entry><title type="html">Pandas &amp;amp; Matplotlib: personalize the date format in a bar chart</title><link href="http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates.html" rel="alternate" type="text/html" title="Pandas &amp; Matplotlib: personalize the date format in a bar chart" /><published>2017-05-24T01:00:00+01:00</published><updated>2017-05-24T01:00:00+01:00</updated><id>http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates</id><content type="html" xml:base="http://localhost:4000/programming/2017/05/24/pandas-bar-plot-with-formatted-dates.html">&lt;p&gt;Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/bar_chart_formatted_dates/Bar_chart_with_formatted_dates.ipynb&quot;&gt;[notebook]&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;For this purpose I downloaded the timeseries of the Game of Thrones Wikipedia page views during Season 7 from &lt;a href=&quot;https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&amp;amp;platform=all-access&amp;amp;agent=user&amp;amp;range=latest-20&amp;amp;pages=Cat|Dog&quot;&gt;[here]&lt;/a&gt;.&lt;br /&gt;
 At first I simply plotted a line chart using this code:&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#import libraries&lt;/span&gt;
@@ -82,11 +225,11 @@ At first I simply plotted a line chart using this code:&lt;/p&gt;
 
 &lt;p&gt;… and that’s it! I hope this would help! Here you can find the code and the data that generated the plot in Fig 3. &lt;a href=&quot;https://github.com/scentellegher/code_snippets/blob/master/bar_chart_formatted_dates/Bar_chart_with_formatted_dates.ipynb&quot;&gt;[link]&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;NOTE: If you are interseted in a short and clear way to understand the python visualization world with pandas and matplotlib here there is a great &lt;a href=&quot;http://pbpython.com/effective-matplotlib.html&quot;&gt;resource&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this [notebook])</summary></entry><entry><title type="html">Personality Traits and Ego-network Dynamics</title><link href="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html" rel="alternate" type="text/html" title="Personality Traits and Ego-network Dynamics" /><published>2017-03-03T01:00:00+01:00</published><updated>2017-03-03T01:00:00+01:00</updated><id>http://localhost:4000/research/2017/03/03/personality-and-ego-network</id><content type="html" xml:base="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html">&lt;p&gt;Me and my advisor &lt;strong&gt;Bruno Lepri&lt;/strong&gt;, in collaboration with professors &lt;strong&gt;Jari Saramäki&lt;/strong&gt; from Aalto University, Finland, and &lt;strong&gt;Eduardo López&lt;/strong&gt; from George Mason University, US, have recently published a new paper on the PLOS ONE journal called &lt;strong&gt;“Personality Traits and Ego-network Dynamics”&lt;/strong&gt;. &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110&quot;&gt;[link]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;NOTE: If you are interseted in a short and clear way to understand the python visualization world with pandas and matplotlib here there is a great &lt;a href=&quot;http://pbpython.com/effective-matplotlib.html&quot;&gt;resource&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this [notebook])</summary></entry><entry><title type="html">Personality Traits and Ego-network Dynamics</title><link href="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html" rel="alternate" type="text/html" title="Personality Traits and Ego-network Dynamics" /><published>2017-03-03T00:00:00+00:00</published><updated>2017-03-03T00:00:00+00:00</updated><id>http://localhost:4000/research/2017/03/03/personality-and-ego-network</id><content type="html" xml:base="http://localhost:4000/research/2017/03/03/personality-and-ego-network.html">&lt;p&gt;Me and my advisor &lt;strong&gt;Bruno Lepri&lt;/strong&gt;, in collaboration with professors &lt;strong&gt;Jari Saramäki&lt;/strong&gt; from Aalto University, Finland, and &lt;strong&gt;Eduardo López&lt;/strong&gt; from George Mason University, US, have recently published a new paper on the PLOS ONE journal called &lt;strong&gt;“Personality Traits and Ego-network Dynamics”&lt;/strong&gt;. &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110&quot;&gt;[link]&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;In this work we were interested in understanding whether and how personality traits affect the way we manage our social relationships. As we know, we interact with a wide network of people on a daily basis, and these social relationships play an important role in our lives. The problem is that there are costs in their maintenance.&lt;/p&gt;
 
-&lt;p&gt;But how individuals’ personality traits affect this picture? In order to find an answer, we combined detailed mobile phone call records with personality traits scores collected by means of surveys, from participants of the &lt;strong&gt;Mobile Territorial Lab (MTL)&lt;/strong&gt; study&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.
+&lt;p&gt;But how individuals’ personality traits affect this picture? In order to find an answer, we combined detailed mobile phone call records with personality traits scores collected by means of surveys, from participants of the &lt;strong&gt;Mobile Territorial Lab (MTL)&lt;/strong&gt; study&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;br /&gt;
 The MTL was a living laboratory that took place in Trento, Italy, in collaboration with &lt;strong&gt;Fondazione Bruno Kessler (FBK)&lt;/strong&gt;, &lt;strong&gt;MIT&lt;/strong&gt;, &lt;strong&gt;TIM&lt;/strong&gt; and &lt;strong&gt;Telefónica&lt;/strong&gt;, and observed the lives of 142 parents through multiple channels for more than two years. The data was collected from smartphones, questionnaires and experience sampling probes. In particular, they tracked social interactions (e.g. call and SMS communications), mobility routines and spending patterns. The data was than used to create a multi-layered view of the lives of the study participants.&lt;/p&gt;
 
 &lt;p&gt;We modeled the patterns of mobile phone interactions of individuals as &lt;strong&gt;social signatures&lt;/strong&gt; defined by Saramäki et al.&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; as&lt;/p&gt;
@@ -101,7 +244,7 @@ The MTL was a living laboratory that took place in Trento, Italy, in collaborati
   &lt;li&gt;&lt;strong&gt;Differences in personality&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;All the individuals’ personality has been measured by the Big Five model, a model that describes the personality of an individual with five dimensions defined as Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, also known as OCEAN.&lt;br /&gt;
+&lt;p&gt;All the individuals’ personality has been measured by the Big Five model, a model that describes the personality of an individual with five dimensions defined as Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, also known as OCEAN.\&lt;br /&gt;
 (If interested, there is a nice &lt;a href=&quot;https://www.ted.com/talks/brian_little_who_are_you_really_the_puzzle_of_personality&quot;&gt;TED talk&lt;/a&gt; by professor Brian Little about the OCEAN personality types, where he focus on the differences between introverts and extroverts).&lt;/p&gt;
 
 &lt;p&gt;During all the analysis, we followed the assumption that individuals in the extreme of the scale for a given trait would exhibit largest differences in communication patterns. Therefore, we identify for each of the Big Five personality traits people falling in the 25th percentile (low personality scores) and the 75th percentile (high personality scores). Thus, for example, for the Extraversion trait we found the most extroverted and the most introverted individuals.&lt;/p&gt;
@@ -117,7 +260,7 @@ The MTL was a living laboratory that took place in Trento, Italy, in collaborati
 &lt;p&gt;Here, we tried to understand whether a particular personality disposition influences the stability of an individual signature over time. We found that the &lt;strong&gt;social signatures of individuals that are more extroverted are slightly less persistent with respect the signatures of individuals that tend to be more introverted&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;turnover&quot;&gt;Turnover&lt;/h3&gt;
-&lt;p&gt;The network turnover inside the egocentric networks of the individuals tends to be characterized by the Openness to
+&lt;p&gt;The network turnover inside the egocentric networks of the individuals tends to be characterized by the Openness to&lt;br /&gt;
 Experience trait, where &lt;strong&gt;people that are willing to try new experiences exhibit a higher network turnover with respect to people who are more closed to experience&lt;/strong&gt; (Fig 1.). Network turnover seems to be characterized by the Agreeableness personality trait as well, where &lt;strong&gt;generally more likable people have a lower network turnover as compared to disagreeable individuals&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;image-wrapper&quot;&gt;
@@ -130,9 +273,9 @@ Experience trait, where &lt;strong&gt;people that are willing to try new experie
 &lt;/div&gt;
 
 &lt;h3 id=&quot;rank-dynamics&quot;&gt;Rank Dynamics&lt;/h3&gt;
-&lt;p&gt;Here, we take a detailed look at what happens inside the network of a focal ego by focusing at the alters
-rank dynamics and subsequently we analyze the effect of personality traits on such  dynamics. In order to do this, for two consecutive temporal intervals of each ego, we build a transition matrix as  follows:  if  there  is  a  transition  of  an alter from rank &lt;em&gt;i&lt;/em&gt; to rank &lt;em&gt;j&lt;/em&gt; in consecutive intervals then we assign the value 1 to that particular transition.
-We then used the transition matrices of egos to represent the alter rank variations of entire subgroups. We simply sum the matrices of all egos in the subgroup and normalize them by the number of egos in that particular subgroup, in order to have probabilities on both rows and columns.
+&lt;p&gt;Here, we take a detailed look at what happens inside the network of a focal ego by focusing at the alters&lt;br /&gt;
+rank dynamics and subsequently we analyze the effect of personality traits on such  dynamics. In order to do this, for two consecutive temporal intervals of each ego, we build a transition matrix as  follows:  if  there  is  a  transition  of  an alter from rank &lt;em&gt;i&lt;/em&gt; to rank &lt;em&gt;j&lt;/em&gt; in consecutive intervals then we assign the value 1 to that particular transition.&lt;br /&gt;
+We then used the transition matrices of egos to represent the alter rank variations of entire subgroups. We simply sum the matrices of all egos in the subgroup and normalize them by the number of egos in that particular subgroup, in order to have probabilities on both rows and columns.&lt;br /&gt;
 The resulting matrix now contains the alters rank dynamics represented as probabilities of moving up and down rank positions.&lt;/p&gt;
 
 &lt;div class=&quot;image-wrapper&quot;&gt;
@@ -144,7 +287,7 @@ The resulting matrix now contains the alters rank dynamics represented as probab
     
 &lt;/div&gt;
 
-&lt;p&gt;Fig 2. shows the transition matrix of the entire population under study. We can clearly see that for the top ranks, the probability mass is clearly concentrated on the diagonal, meaning that the top ranks are more stable.  This is expected, since people in the top positions of the network are the people that a particular ego contacts
+&lt;p&gt;Fig 2. shows the transition matrix of the entire population under study. We can clearly see that for the top ranks, the probability mass is clearly concentrated on the diagonal, meaning that the top ranks are more stable.  This is expected, since people in the top positions of the network are the people that a particular ego contacts&lt;br /&gt;
 more frequently, such as for example family members, and these relationships are expected to be more close and stable.&lt;/p&gt;
 
 &lt;p&gt;Adding the personality traits dimension, it seems that &lt;strong&gt;people that show a higher disposition to curiosity and willingness to experiment new things tend to be less stable&lt;/strong&gt; regarding the set of alters that they communicate with, as compared to their counterpart. We have similar results with the Agreeableness personality trait, where &lt;strong&gt;agreeable people tend to have a higher spread, namely larger rank dynamics with respect their counterpart&lt;/strong&gt;.&lt;/p&gt;

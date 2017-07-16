@@ -114,7 +114,7 @@
 
   <header class="post-header">
      <h2 style="color: #337ab7" class="post-title">Pandas & Matplotlib: personalize the date format in a bar chart</h2>
-     <p class="post-meta"><time datetime="2017-05-24T02:00:00+02:00" itemprop="datePublished">May 24, 2017</time></p>
+     <p class="post-meta"><time datetime="2017-05-24T01:00:00+01:00" itemprop="datePublished">May 24, 2017</time></p>
      <hr>
   </header>
   <div class="share-page">
@@ -141,7 +141,7 @@
   <div class="post-content" itemprop="articleBody">
     <p>Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this <a href="https://github.com/scentellegher/code_snippets/blob/master/bar_chart_formatted_dates/Bar_chart_with_formatted_dates.ipynb">[notebook]</a>)</p>
 
-<p>For this purpose I downloaded the timeseries of the Game of Thrones Wikipedia page views during Season 7 from <a href="https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&amp;platform=all-access&amp;agent=user&amp;range=latest-20&amp;pages=Cat|Dog">[here]</a>.
+<p>For this purpose I downloaded the timeseries of the Game of Thrones Wikipedia page views during Season 7 from <a href="https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&amp;platform=all-access&amp;agent=user&amp;range=latest-20&amp;pages=Cat|Dog">[here]</a>.<br />
 At first I simply plotted a line chart using this code:</p>
 
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#import libraries</span>
