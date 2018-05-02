@@ -101,6 +101,8 @@
       
         <li><a style='font-weight: 300;' href="/categories/programming">programming</a></li>
       
+        <li><a style='font-weight: 300;' href="/categories/visualization">visualization</a></li>
+      
     </ul>
   </div> 
 
@@ -114,7 +116,7 @@
 
   <header class="post-header">
      <h2 style="color: #337ab7" class="post-title">Pandas: plot the values of a groupby on multiple columns</h2>
-     <p class="post-meta"><time datetime="2017-07-15T01:00:00+01:00" itemprop="datePublished">Jul 15, 2017</time></p>
+     <p class="post-meta"><time datetime="2017-07-15T02:00:00+02:00" itemprop="datePublished">Jul 15, 2017</time></p>
      <hr>
   </header>
   <div class="share-page">
@@ -162,11 +164,10 @@
 
 <p>Now suppose we would like to see the daily number of transactions made for each expense type. How can we do that? Well it is pretty simple, we just need to use the <strong>groupby()</strong> method, grouping the data by <em>date</em> and <em>type</em> and then plot it!</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#plot data</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#plot data</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'date'</span><span class="p">,</span><span class="s">'type'</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s">'amount'</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Let’s see the result!</p>
 
@@ -196,12 +197,11 @@ In Fig 3. (left), we have an excerpt of our dataframe after we apply the <em>gro
 <p>If you want to understand more about stacking, unstacking and pivoting tables with Pandas, give a look at this nice explanation given by Nikolay Grozev in his <a href="http://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/">post</a>.<br />
 Now since our data is correctly represented, we can finally plot the daily number of transactions made for each expense type:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># plot data</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># plot data</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
 <span class="c"># use unstack()</span>
 <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'date'</span><span class="p">,</span><span class="s">'type'</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()[</span><span class="s">'amount'</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <div class="image-wrapper">
     

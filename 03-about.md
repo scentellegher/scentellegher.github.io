@@ -8,11 +8,13 @@ permalink: /about
 
 
 **Education**
-* *2015-current -* *Doctoral school of Information and Communication Technology*{: style="color: #337ab7"}, University of Trento, Fondazione Bruno Kessler (FBK), Italy, Phd student
-* *2012-2015 -* *Computer Science*{: style="color: #337ab7"}, University of Trento, Italy, Master's degree
-* *2008-2012 -* *Computer Science*{: style="color: #337ab7"}, University of Trento, Italy, Bachelor’s degree
+* *2015-current -* *PhD in Information and Communication Technology*{: style="color: #337ab7"}, University of Trento, Fondazione Bruno Kessler (FBK), Italy
+* *2012-2015 -* *Master's degree in Computer Science*{: style="color: #337ab7"}, University of Trento, Italy
+* *2008-2012 -* *Bachelor’s degree in Computer Science*{: style="color: #337ab7"}, University of Trento, Italy 
 
 **Research Stays & Attendance to Schools and Conferences**
+
+* *Jul 2017 -* *Summer School Series on Methods for Computational Social Science*{: style="color: #337ab7"}, Sant’Antioco, Sardinia, Italy, Summer School.
 * *Apr 2017 -* *NetMob Conference*{: style="color: #337ab7"}, Milan, Italy, Oral Presentation in the *Social networks* session.  
 * *Jan 2017 -* *NetSciX 2017 Conference*{: style="color: #337ab7"}, Tel-Aviv, Israel, Oral Presentation in the parallel session *Social and political networks*.  
 * *Aug 2016-Sep 2016 -* *Scalable Cooperation group, MIT Media Lab*{: style="color: #337ab7"}, Cambridge, MA, US, Visiting Student.

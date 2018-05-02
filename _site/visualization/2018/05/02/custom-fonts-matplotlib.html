@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Add custom fonts to Matplotlib</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/syntax.css">
+  <link rel="canonical" href="http://localhost:4000/visualization/2018/05/02/custom-fonts-matplotlib.html">
+  <link rel="alternate" type="application/rss+xml" title="Simone Centellegher" href="http://localhost:4000/feed.xml">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.x-git.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+  
+  <body>   
+    <div class='main'>
+        <div id='side'>
+            <div class='sidebar menu'>
+
+  <div id="picture" style="background-image: url(/assets/images/avatar.jpg)"></div>
+    
+  <p>PhD student and Data Scientist in the MobS Lab @ Fondazione Bruno Kessler (Italy)</p>
+
+  <hr>
+
+  <div id="social-icons">
+    <div class='inner'>
+      <ul>
+          <li>
+            <a id='twitter' href="http://twitter.com/simonecent" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a id='linkedin' href="https://it.linkedin.com/in/scentellegher" target="_blank">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a id='github' href="http://github.com/scentellegher" target="_blank">
+              <i class="fa fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a id='cv' href="/assets/cv/simone_centellegher_CV.pdf" target="_blank">
+              <i class="fa fa-file-text-o"></i>
+            </a>
+          </li>    
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="navigation">
+    <ul>
+      
+        
+            <li><a href="/">Blog</a></li>
+        
+      
+        
+            <li><a href="/publications">Publications</a></li>
+        
+      
+        
+            <li><a href="/about">About</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <hr>
+
+  <div class="navigation">
+    <ul>
+      
+        <li><a style='font-weight: 300;' href="/categories/research">research</a></li>
+      
+        <li><a style='font-weight: 300;' href="/categories/programming">programming</a></li>
+      
+        <li><a style='font-weight: 300;' href="/categories/visualization">visualization</a></li>
+      
+    </ul>
+  </div> 
+
+  <hr>
+
+  <p>Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> </p>
+</div>
+        </div>
+        <div id='container' class='content'>
+            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+     <h2 style="color: #337ab7" class="post-title">Add custom fonts to Matplotlib</h2>
+     <p class="post-meta"><time datetime="2018-05-02T02:00:00+02:00" itemprop="datePublished">May 2, 2018</time></p>
+     <hr>
+  </header>
+  <div class="share-page">
+    Share this on &rarr;
+    <a href="https://twitter.com/intent/tweet?text=Add custom fonts to Matplotlib&url=http://localhost:4000/visualization/2018/05/02/custom-fonts-matplotlib.html&via=simonecent&related=simonecent" rel="nofollow" target="_blank" title="Share on Twitter" style="color:  #1DA1F2;">
+    	<i class="fa fa-twitter fa-lg"></i>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=http://localhost:4000//visualization/2018/05/02/custom-fonts-matplotlib.html&title=Add custom fonts to Matplotlib" rel="nofollow" target="_blank" title="Share on Facebook" style='color: #4867AA;'>
+    	<i class="fa fa-facebook fa-lg"></i>
+    </a>
+    <a href="https://plus.google.com/share?url=http://localhost:4000/visualization/2018/05/02/custom-fonts-matplotlib.html" rel="nofollow" target="_blank" title="Share on Google+" style='color: #DD4B39;'>
+    	<i class="fa fa-google-plus fa-lg"></i>
+    </a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/visualization/2018/05/02/custom-fonts-matplotlib.html&title=Add custom fonts to Matplotlib" target="_blank" title="Share on LinkedIn" style='color: #0177B5;'>
+    	<i class="fa fa-linkedin fa-lg"></i>
+    </a>
+    <a href="http://www.reddit.com/submit?url=http://localhost:4000/visualization/2018/05/02/custom-fonts-matplotlib.html&title=Add custom fonts to Matplotlib" rel="nofollow" target="_blank" title="Share on Reddit" style='color: #FF4500;'>
+    	<i class="fa fa-reddit fa-lg"></i>
+    </a>
+</div>
+
+
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This is step by step guide to add a custom font to Matplotlib. I have tested this procedure on both Linux and OS X machines.<br />
+Suppose you are running a Jupyter notebook and you want to change the font of a plot. Here is what you need to do!</p>
+
+<ol>
+  <li>First, we need to install our custom font. Keep in mind that Matplotlib expects a font in <em>True Type</em> format (<strong>.ttf</strong>). For example, if we want to add the Helvetica font, we need to check if we have the font in .ttf format installed on our system otherwise we need to download it and install it.</li>
+  <li>Next, we need to update the font cache from the command line with the following command:
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">fc</span><span class="o">-</span><span class="n">cache</span> <span class="o">-</span><span class="n">fv</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Clear the matplotlib font cache:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rm</span> <span class="o">-</span><span class="n">fr</span> <span class="o">~/.</span><span class="n">cache</span><span class="o">/</span><span class="n">matplotlib</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Restart your Jupyter notebook server</li>
+</ol>
+
+<p>That’s it! Now we need to instruct Matplotlib to use our custom font. Suppose that we want to plot a bar chart and change the labels and ticks font. In this case, just for visual purposes, we will use the Comic Sans font.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'perc'</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">45</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span><span class="s">'D'</span><span class="p">,</span><span class="s">'E'</span><span class="p">,</span><span class="s">'F'</span><span class="p">])})</span>
+
+<span class="c"># specify the custom font to use</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'font.family'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'sans-serif'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s">'font.sans-serif'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'Comic Sans MS'</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'barh'</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="bp">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">'Percentage'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Type'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, let’s try to plot it and see the actual result!</p>
+
+<div class="image-wrapper">
+    
+        <img src="http://localhost:4000//assets/images/post/changed_font.png" width="550" height="auto" alt="" />
+    
+    
+        <p class="image-caption">Fig 1. Font changed!</p>
+    
+</div>
+
+<p>In case something went wrong and you receive an error like this</p>
+
+<p><strong>UserWarning: findfont: Font family [‘sans-serif’] not found. Falling back to DejaVu Sans (prop.get_family(), self.defaultFamily[fontext]))</strong></p>
+
+<p>you need to check whether matplotlib is “seeing” your custom font. In order to do so, we can run in your notebook the following two lines of code</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.font_manager</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">findSystemFonts</span><span class="p">(</span><span class="n">fontpaths</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fontext</span><span class="o">=</span><span class="s">'ttf'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If your font is not in the list, you need to copy your custom font in the system library</p>
+<ul>
+  <li><strong>~/Library/Fonts/</strong> in OS X</li>
+  <li><strong>/usr/share/fonts/truetype</strong> in Linux</li>
+</ul>
+
+<p>and run again the commands from step 2 to 4.</p>
+
+<p>You can see the complete code in this <a href="https://github.com/scentellegher/code_snippets/blob/master/matplotlib_font/Matplotlib_custom_font.ipynb">[notebook]</a></p>
+
+
+  </div>
+
+  <!-- To enable Disqus comments, comment out this code and insert your Disqus shortname -->
+
+  <!--  -->
+
+</article>
+    
+        </div>    
+        <div class='clear'></div>
+    </div>
+    
+    
+  </body>
+  
+</html>
+
+   

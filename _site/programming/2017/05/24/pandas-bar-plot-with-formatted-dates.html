@@ -101,6 +101,8 @@
       
         <li><a style='font-weight: 300;' href="/categories/programming">programming</a></li>
       
+        <li><a style='font-weight: 300;' href="/categories/visualization">visualization</a></li>
+      
     </ul>
   </div> 
 
@@ -114,7 +116,7 @@
 
   <header class="post-header">
      <h2 style="color: #337ab7" class="post-title">Pandas & Matplotlib: personalize the date format in a bar chart</h2>
-     <p class="post-meta"><time datetime="2017-05-24T01:00:00+01:00" itemprop="datePublished">May 24, 2017</time></p>
+     <p class="post-meta"><time datetime="2017-05-24T02:00:00+02:00" itemprop="datePublished">May 24, 2017</time></p>
      <hr>
   </header>
   <div class="share-page">
@@ -144,10 +146,10 @@
 <p>For this purpose I downloaded the timeseries of the Game of Thrones Wikipedia page views during Season 7 from <a href="https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&amp;platform=all-access&amp;agent=user&amp;range=latest-20&amp;pages=Cat|Dog">[here]</a>.<br />
 At first I simply plotted a line chart using this code:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#import libraries</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="kn">as</span> <span class="nn">mdates</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#import libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="n">mdates</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 
 <span class="c">#read data from csv</span>
@@ -163,8 +165,7 @@ At first I simply plotted a line chart using this code:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">WeekdayLocator</span><span class="p">())</span>
 <span class="c">#set major ticks format</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">b </span><span class="si">%</span><span class="s">d'</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <div class="image-wrapper">
     
@@ -177,9 +178,8 @@ At first I simply plotted a line chart using this code:</p>
 
 <p>As you can see everything seems fine, the labels on the x-axis are well formatted with a label every week. What if we want to plot a bar chart instead? We can try to use the option <strong>kind=’bar’</strong> in the pandas <em>plot()</em> function</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>When we run the code again, we have the following error:</p>
 
@@ -189,9 +189,8 @@ At first I simply plotted a line chart using this code:</p>
 
 <p>and adding <strong>ax.xaxis_date()</strong> as suggested does not solve the problem! I tried to make the code work with the pandas <em>plot()</em> function but I couldn’t find a solution. So after spending some time looking around, I decided to give up and started to use the matplotlib <em>bar()</em> function</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'count'</span><span class="p">])</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s">'count'</span><span class="p">])</span>
+</code></pre></div></div>
 <p>This is what we have</p>
 
 <div class="image-wrapper">
@@ -205,12 +204,11 @@ At first I simply plotted a line chart using this code:</p>
 
 <p>The date labels formatted in this way are ugly! So let’s use the matplotlib <strong>DateFormatter</strong> to make them prettier…</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#set ticks every week</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#set ticks every week</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">WeekdayLocator</span><span class="p">())</span>
 <span class="c">#set major ticks format</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">b </span><span class="si">%</span><span class="s">d'</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <div class="image-wrapper">
     
