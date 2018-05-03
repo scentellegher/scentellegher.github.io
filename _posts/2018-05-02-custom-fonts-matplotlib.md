@@ -2,7 +2,7 @@
 layout: post
 title:  "Add custom fonts to Matplotlib"
 date:   2018-05-02 00:00:00
-subtitle: How to add a custom font to Matplotlib in an easy way
+subtitle: How to easily install a custom font in Matplotlib
 categories: visualization
 ---
 

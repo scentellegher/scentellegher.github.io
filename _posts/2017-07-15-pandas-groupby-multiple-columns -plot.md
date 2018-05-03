@@ -63,7 +63,7 @@ data.groupby(['date','type']).count()['amount'].unstack().plot(ax=ax)
    caption="Fig 4. Our final plot!"
 %}
 
-You can see the complete code in this [[notebook]][notebook])
+You can see the complete code in this [[notebook]][notebook]
 
 
 [faker]: https://github.com/joke2k/faker
