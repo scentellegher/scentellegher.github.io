@@ -26,7 +26,7 @@ ax.set_ylabel('Transaction Type')
 ```
 
 {% include image.html
-   img="/assets/images/post/hist_data_plot.png"
+   img="/assets/images/post/2018_10_10_hist_data_plot.png"
    caption="Fig 1. Expense data"
    width=800
    height=auto
@@ -36,7 +36,7 @@ ax.set_ylabel('Transaction Type')
 As you can see, the standard matplotlib style is pretty basic and there is a lot of room for aesthetically improving our original plot. We can use colors that are not too bright, improve the axis style and remove all the elements of the plot that are visually useless such as the top and right spines. In Fig 1 you can see the final version of our bar plot.
 
 {% include image.html
-   img="/assets/images/post/hist2.png"
+   img="/assets/images/post/2018_10_10_hist2.png"
    caption="Fig 2. Our final bar plot. Better right?!"
    width=550
    height=auto
@@ -70,12 +70,12 @@ Then we create for each expense type an horizontal line that starts at x = 0 wit
 fig, ax = plt.subplots(figsize=(5,3.5))
 plt.hlines(y=my_range, xmin=0, xmax=df['percentage'], color='#007acc', alpha=0.2, linewidth=5)
 ```
-<img src="/assets/images/post/hist_hline.png" width="220"/>
+<img src="/assets/images/post/2018_10_10_hist_hline.png" width="220"/>
 Similarly to a lollipop plot, we add for each expense type a dot at the level of the expense percentage value.
 ```python
 plt.plot(df['percentage'], my_range, "o", markersize=5, color='#007acc', alpha=0.6)
 ```
-<img src="/assets/images/post/hist_dot.png" width="250"/>
+<img src="/assets/images/post/2018_10_10_hist_dot.png" width="250"/>
 4. **Change the lables style**
 ```python
 # set labels style
@@ -91,7 +91,7 @@ ax.spines['right'].set_color('none')
 ax.spines['left'].set_smart_bounds(True)
 ax.spines['bottom'].set_smart_bounds(True)
 ```
-<img src="/assets/images/post/hist_smart_bound.png" width="400"/>
+<img src="/assets/images/post/2018_10_10_hist_smart_bound.png" width="400"/>
 **Tip**: if the *set_smart_bounds()* method does not add the final tick that closes the x-axis or y-axis spine, just plot a dot with 0 size at the needed coordinates!
 
 That's it! With few simple changes we have considerably improved the rendering of of plot!

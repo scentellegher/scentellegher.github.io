@@ -40,7 +40,7 @@ The network turnover inside the egocentric networks of the individuals tends to 
 Experience trait, where **people that are willing to try new experiences exhibit a higher network turnover with respect to people who are more closed to experience** (Fig 1.). Network turnover seems to be characterized by the Agreeableness personality trait as well, where **generally more likable people have a lower network turnover as compared to disagreeable individuals**.
 
 {% include image.html
-   img="/assets/images/post/openness_turnover.png"
+   img="/assets/images/post/2017_03_03_openness_turnover.png"
    caption="Fig 1. Openness to Experience and network turnover. Individuals who are more open to experience show a higher turnover as compared to the lowest-scoring 25%. Left:  the estimated probability density functions of the distributions of network turnover in egocentric networks.  Right:  violin plots of the same distributions."
 %}
 
@@ -52,7 +52,7 @@ The resulting matrix now contains the alters rank dynamics represented as probab
 
 
 {% include image.html
-   img="/assets/images/post/pers_population.png"
+   img="/assets/images/post/2017_03_03_pers_population.png"
    caption="Fig 2. The normalized transition matrix for the entire population. Looking at the diagonal of the transition matrix, it is possible to notice that the top positions are more stable with respect to low-ranked positions"
    width=500
    height="auto"
@@ -65,7 +65,7 @@ Adding the personality traits dimension, it seems that **people that show a high
 
 
 {% include image.html
-   img="/assets/images/post/openess_rank.png"
+   img="/assets/images/post/2017_03_03_openess_rank.png"
    caption="Fig 3. Top row: the transition matrices for the subgroups of individuals with high and low scores in the Openness to Experience personality trait. It is possible to observe that the subgroup of people that display higher scores shows a higher spread with respect to the opposite subgroup, where the “heat” is more concentrated around the diagonal. Bottom  row:  The  2-dimensional  kernel density estimation plots emphasize the fact the rank variations inside the group of people with high scores in the Openness to Experience trait are larger with respect to the opposite subgroup."
 %}
 

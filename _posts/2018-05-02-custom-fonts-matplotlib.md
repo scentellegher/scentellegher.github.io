@@ -42,7 +42,7 @@ ax.set_ylabel('Type',fontsize=15)
 Now, let's try to plot it and see the actual result!
 
 {% include image.html
-   img="/assets/images/post/changed_font.png"
+   img="/assets/images/post/2018_05_02_changed_font.png"
    caption="Fig 1. Font changed!"
    width=550
    height="auto"
@@ -52,7 +52,7 @@ In case something went wrong and you receive an error like this
 
 **UserWarning: findfont: Font family ['sans-serif'] not found. Falling back to DejaVu Sans (prop.get_family(), self.defaultFamily[fontext]))**
 
-you need to check whether matplotlib is "seeing" your custom font. In order to do so, we can run in your notebook the following two lines of code
+you need to check whether matplotlib is "seeing" your custom font. In order to do so, we can run in our notebook the following two lines of code
 ```python
 import matplotlib.font_manager
 matplotlib.font_manager.findSystemFonts(fontpaths=None, fontext='ttf')

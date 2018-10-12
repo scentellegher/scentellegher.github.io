@@ -13,7 +13,8 @@ permalink: /about
 * *2008-2012 -* *Bachelor’s degree in Computer Science*{: style="color: #337ab7"}, University of Trento, Italy 
 
 **Research Stays & Attendance to Schools and Conferences**
-
+* *Jun 2018-Sep 2018 -* *Vodafone Research*{: style="color: #337ab7"}, London, UK, Data Scientist Intern.
+* *Jun 2017-Oct 2017 -* *Vodafone Research*{: style="color: #337ab7"}, London, UK, Data Scientist Intern.
 * *Jul 2017 -* *Summer School Series on Methods for Computational Social Science*{: style="color: #337ab7"}, Sant’Antioco, Sardinia, Italy, Summer School.
 * *Apr 2017 -* *NetMob Conference*{: style="color: #337ab7"}, Milan, Italy, Oral Presentation in the *Social networks* session.  
 * *Jan 2017 -* *NetSciX 2017 Conference*{: style="color: #337ab7"}, Tel-Aviv, Israel, Oral Presentation in the parallel session *Social and political networks*.  
