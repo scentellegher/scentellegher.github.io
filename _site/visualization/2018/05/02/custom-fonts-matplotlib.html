@@ -179,7 +179,7 @@ Suppose you are running a Jupyter notebook and you want to change the font of a 
 
 <div class="image-wrapper">
     
-        <img src="http://localhost:4000//assets/images/post/changed_font.png" width="550" height="auto" alt="" />
+        <img src="http://localhost:4000//assets/images/post/2018_05_02_changed_font.png" width="550" height="auto" alt="" />
     
     
         <p class="image-caption">Fig 1. Font changed!</p>
@@ -190,7 +190,7 @@ Suppose you are running a Jupyter notebook and you want to change the font of a 
 
 <p><strong>UserWarning: findfont: Font family [‘sans-serif’] not found. Falling back to DejaVu Sans (prop.get_family(), self.defaultFamily[fontext]))</strong></p>
 
-<p>you need to check whether matplotlib is “seeing” your custom font. In order to do so, we can run in your notebook the following two lines of code</p>
+<p>you need to check whether matplotlib is “seeing” your custom font. In order to do so, we can run in our notebook the following two lines of code</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.font_manager</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">findSystemFonts</span><span class="p">(</span><span class="n">fontpaths</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">fontext</span><span class="o">=</span><span class="s">'ttf'</span><span class="p">)</span>
 </code></pre></div></div>

@@ -21,7 +21,7 @@ Possible explanations on how persistent these communication patterns are over ti
 * Cognitive constraints
 * **Differences in personality**
 
-All the individuals' personality has been measured by the Big Five model, a model that describes the personality of an individual with five dimensions defined as Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, also known as OCEAN.\\
+All the individuals' personality has been measured by the Big Five model, a model that describes the personality of an individual with five dimensions defined as Openness to Experience, Conscientiousness, Extraversion, Agreeableness, and Neuroticism, also known as OCEAN.  
 (If interested, there is a nice [TED talk][ted-little] by professor Brian Little about the OCEAN personality types, where he focus on the differences between introverts and extroverts). 
 
 During all the analysis, we followed the assumption that individuals in the extreme of the scale for a given trait would exhibit largest differences in communication patterns. Therefore, we identify for each of the Big Five personality traits people falling in the 25th percentile (low personality scores) and the 75th percentile (high personality scores). Thus, for example, for the Extraversion trait we found the most extroverted and the most introverted individuals.
