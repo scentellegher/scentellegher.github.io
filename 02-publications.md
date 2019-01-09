@@ -4,6 +4,14 @@ title: Publications
 permalink: /publications
 ---
 
+### 2018
+
+>#### __Mobile Money: Understanding and Predicting its Adoption and Use in a Developing Economy.__
+>*Centellegher, S., Miritello, G., Villatoro, D., Parameshwar, D., Lepri, B., Oliver N.*  
+Access to financial institutions is difficult in developing economies and especially for the poor. However, the widespread adoption of mobile phones has enabled the development of mobile money systems that deliver financial services through the mobile phone network. Despite the success of mobile money, there is a lack of quantitative studies that unveil which factors contribute to the adoption and sustained usage of such services. In this paper, we describe the results of a quantitative study that analyzes data from the world's leading mobile money service, M-Pesa. We analyzed millions of anonymized mobile phone communications and M-Pesa transactions in an African country.
+[[ACM IMWUT]][imwut-mobile]
+
+
 ### 2017
 
 >#### __Personality Traits and Ego-network Dynamics.__
@@ -26,7 +34,7 @@ In this paper, we describe the Mobile Territorial Lab (MTL) project, a longitudi
 This paper presents ETSCH, a novel paradigm for processing large graphs. ETSCH departs from the vertex-based approach of BSP frameworks like PREGEL in two ways: first, the units of computation are not the vertices, but rather a collection of subgraphs; second, the subgraphs are obtained through an edge-partitioning algorithm and computations over the graph are then expressed using classical centralized algorithms executed on each of the partitions, with the only additional burden of specifying simple reconciliation procedures when vertices are replicated in multiple computing nodes.  
 [[Proc. of the 2nd International Conference on Cloud and Big Data Computing]][cbdcom-etsch]
 
-
+[imwut-mobile]: https://scentellegher.github.io/assets/docs/centellegher2018mobile.pdf
 [plos-pers]: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110
 [arxiv-pers]: https://arxiv.org/abs/1702.06458
 [epj-mtl]: http://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-016-0064-6
