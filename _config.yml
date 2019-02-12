@@ -22,4 +22,7 @@ kramdown:
 # Show posts with date in the future
 future: true
 
+# Google Analytics
+google_analytics: UA-92905730-1
+
 
