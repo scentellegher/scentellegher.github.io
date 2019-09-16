@@ -9,7 +9,7 @@ permalink: /publications
 >#### __Mobile Money: Understanding and Predicting its Adoption and Use in a Developing Economy.__
 >*Centellegher, S., Miritello, G., Villatoro, D., Parameshwar, D., Lepri, B., Oliver N.*  
 Access to financial institutions is difficult in developing economies and especially for the poor. However, the widespread adoption of mobile phones has enabled the development of mobile money systems that deliver financial services through the mobile phone network. Despite the success of mobile money, there is a lack of quantitative studies that unveil which factors contribute to the adoption and sustained usage of such services. In this paper, we describe the results of a quantitative study that analyzes data from the world's leading mobile money service, M-Pesa. We analyzed millions of anonymized mobile phone communications and M-Pesa transactions in an African country.
-[[ACM IMWUT]][imwut-mobile]
+[[ACM IMWUT]][imwut-mobile] **[IC2S2]** **[Ubicomp]**
 
 
 ### 2017
