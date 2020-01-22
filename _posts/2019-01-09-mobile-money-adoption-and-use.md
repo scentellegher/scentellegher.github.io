@@ -62,7 +62,7 @@ Changing the percentile split for high and low spenders it is possible to reach 
 The most important features for the two classification tasks are shown in Fig 2. (If you are interested in generating the barplot as in figure, you can find [here][beautiful-barplot] a tutorial).
 
 {% include image.html
-   img="/assets/images/post/2019_01_09_feature_imp_both.png"
+   img="assets/images/post/2019_01_09_feature_imp_both.png"
    caption="Fig 2. Feature importance in Task 1: predicting M-Pesa usage (left), and feature importance in Task 2: predicting M-Pesa expenditure (right)."
 %}
 
