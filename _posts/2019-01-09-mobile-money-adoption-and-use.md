@@ -20,7 +20,7 @@ In 2007, the largest mobile operator in Kenya, Safaricom (owned partially by Vod
 After a simple registration phase, requiring an official form of identification, the service allows its customers to perform a variety of services, including deposit money on their M-Pesa account associated with their mobile phone; transfer money via an SMS to another mobile phone user; withdraw cash from their M-Pesa account; purchase airtime and pay bills. To enable money deposits and withdrawals, M-Pesa runs and maintains an extensive agent network distributed on the territory. In fact, M-Pesa acts as a branch-less banking service where the "ATMs" are replaced by agents, which generally consist of already existing airtime resellers and retail outlets. An example of a money transfer between two M-Pesa customers is depicted in Fig 1.
 
 {% include image.html
-   img="/assets/images/post/2019_01_09_mpesa_arch.png"
+   img="assets/images/post/2019_01_09_mpesa_arch.png"
    caption="Fig 1. Suppose Alice and Bob live far from each other and that Alice wants to send money to Bob in a fast and secure way. 
    (1) Alice goes to the M-Pesa agent (Agent 1) and (2) top up her M-Pesa account. Then (3) Alice sends the money to Bob with a specific SMS. (4) Bob can go to the nearest M-Pesa agent (Agent 2) and withdraw the money from his account."
 %}
