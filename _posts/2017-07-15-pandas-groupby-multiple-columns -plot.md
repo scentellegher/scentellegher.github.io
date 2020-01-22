@@ -19,7 +19,7 @@ Suppose you have a dataset containing credit card transactions, including:
 Since this kind of data it is not freely available for privacy reasons, I generated a fake dataset using the python library [Faker][faker], that generates fake data for you. In Fig 1. you can see such generated data.
 
 {% include image.html
-   img="/assets/images/post/2017_07_15_data_unstack.png"
+   img="assets/images/post/2017_07_15_data_unstack.png"
    caption="Fig 1. Data generated with the python module Faker."
    width=350
    height="auto"
@@ -36,7 +36,7 @@ data.groupby(['date','type']).count()['amount'].plot(ax=ax)
 Let's see the result!
 
 {% include image.html
-   img="/assets/images/post/2017_07_15_plot_without_unstack.jpeg"
+   img="assets/images/post/2017_07_15_plot_without_unstack.jpeg"
    caption="Fig 2. Uhm.. there is something wrong.."
 %}
 
@@ -46,7 +46,7 @@ In Fig 3. (left), we have an excerpt of our dataframe after we apply the *groupb
  What this function does is basically pivoting a level of the row index (in this case the type of the expense) to the column axis as shown in Fig 3. (right).
 
 {% include image.html
-   img="/assets/images/post/2017_07_15_vs_unstack.png"
+   img="assets/images/post/2017_07_15_vs_unstack.png"
    caption="Fig 3. Our grouped data before (left) and after applying the unstack() method (right)"
 %}
 
@@ -61,7 +61,7 @@ data.groupby(['date','type']).count()['amount'].unstack().plot(ax=ax)
 ```
 
 {% include image.html
-   img="/assets/images/post/2017_07_15_plot_with_unstack.png"
+   img="assets/images/post/2017_07_15_plot_with_unstack.png"
    caption="Fig 4. Our final plot!"
 %}
 

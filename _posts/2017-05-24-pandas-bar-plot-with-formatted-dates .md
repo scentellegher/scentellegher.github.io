@@ -39,7 +39,7 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 
 
 {% include image.html
-   img="/assets/images/post/2017_05_24_line_plot.png"
+   img="assets/images/post/2017_05_24_line_plot.png"
    caption="Fig 1. Here you can see the number of page views of the Game of Thrones Wikipedia page. We can clearly see the peaks in the proximity of each episodes!"
 %}
 
@@ -61,7 +61,7 @@ ax.bar(data.index, data['count'])
 This is what we have
 
 {% include image.html
-   img="/assets/images/post/2017_05_24_wrong_bar_plot.png"
+   img="assets/images/post/2017_05_24_wrong_bar_plot.png"
    caption="Fig 2. We need to fix the date format!"
 %}
 
@@ -76,7 +76,7 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 ```
 
 {% include image.html
-   img="/assets/images/post/2017_05_24_bar_plot.png"
+   img="assets/images/post/2017_05_24_bar_plot.png"
    caption="Fig 3. Finally!"
 %}
 

@@ -28,7 +28,7 @@ ax.set_ylabel('Transaction Type')
 ```
 
 {% include image.html
-   img="/assets/images/post/2018_10_10_hist_data_plot.png"
+   img="assets/images/post/2018_10_10_hist_data_plot.png"
    caption="Fig 1. Expense data"
    width=800
    height=auto
@@ -38,7 +38,7 @@ ax.set_ylabel('Transaction Type')
 As you can see, the standard matplotlib style is pretty basic and there is a lot of room for aesthetically improving our original plot. We can use colors that are not too bright, improve the axis style and remove all the elements of the plot that are visually useless such as the top and right spines. In Fig 1 you can see the final version of our bar plot.
 
 {% include image.html
-   img="/assets/images/post/2018_10_10_hist2.png"
+   img="assets/images/post/2018_10_10_hist2.png"
    caption="Fig 2. Our final bar plot. Better right?!"
    width=550
    height=auto

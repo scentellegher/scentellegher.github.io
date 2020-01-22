@@ -44,7 +44,7 @@ ax.set_ylabel('Type',fontsize=15)
 Now, let's try to plot it and see the actual result!
 
 {% include image.html
-   img="/assets/images/post/2018_05_02_changed_font.png"
+   img="assets/images/post/2018_05_02_changed_font.png"
    caption="Fig 1. Font changed!"
    width=550
    height="auto"
