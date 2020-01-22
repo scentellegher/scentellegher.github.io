@@ -4,6 +4,8 @@ title:  "Add custom fonts to Matplotlib"
 date:   2018-05-02 00:00:00
 subtitle: How to easily install a custom font in Matplotlib
 categories: visualization
+img:  # Add image post (optional)
+tags: [custom fonts, matplotlib, visualization] # add tag
 ---
 
 This is step by step guide to add a custom font to Matplotlib. I have tested this procedure on both Linux and OS X machines.

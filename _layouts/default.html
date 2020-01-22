@@ -1,23 +1,12 @@
 <!DOCTYPE html>
-<html>
-  {% include head.html %}
-  
-  <body>   
-    <div class='main'>
-        <div id='side'>
-            {% include sidebar.html %}
-        </div>
-        <div id='container' class='content'>
-            {{ content }}    
-        </div>    
-        <div class='clear'></div>
-    </div>
-    
-    {% if jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
-  </body>
-  
-</html>
+<html lang="en">
+{% include head.html %}
+<body>
 
-   
+  <div class="wrapper">
+    {{ content }}
+  </div>
+  
+  {% include analytics.html %}
+</body>
+</html>

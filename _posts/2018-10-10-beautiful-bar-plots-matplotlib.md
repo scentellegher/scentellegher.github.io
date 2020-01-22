@@ -4,6 +4,8 @@ title:  "Beautiful bar plots with matplotlib"
 date:   2018-10-10 00:00:00
 subtitle: How to make nice looking bar plots in python with matplotlib
 categories: visualization
+img:  # Add image post (optional)
+tags: [matplotlib, visualization, barplot] # add tag
 ---
 
 In this post, I will explain how to create beautiful bar plots with matplotlib. The default style and colors used in matplotlib are kind of ugly, fortunately, it is possible to change the rendering of the plots pretty easily. 

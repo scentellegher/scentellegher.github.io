@@ -4,6 +4,8 @@ title:  "Pandas: plot the values of a groupby on multiple columns"
 date:   2017-07-15 00:00:00
 subtitle: How to plot different categories in the same figure, after a groupby, using pandas function unstack()
 categories: programming
+img:  # Add image post (optional)
+tags: [pandas, groupby, programming] # add tag
 ---
 
 This is just a pandas programming note that explains how to plot in a fast way different categories contained in a groupby on multiple columns, generating a two level MultiIndex.  

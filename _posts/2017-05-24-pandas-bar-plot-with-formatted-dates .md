@@ -4,6 +4,8 @@ title:  "Pandas & Matplotlib: personalize the date format in a bar chart"
 date:   2017-05-24 00:00:00
 subtitle: A simple way to plot a bar chart with formatted dates on the x-axis with Pandas and Matplotlib
 categories: programming
+img:  # Add image post (optional)
+tags: [pandas, matplotlib, visualization] # add tag
 ---
 
 Yesterday, in the office, one of my colleague stumbled upon a problem that seemed really simple at first. He wanted to change the format of the dates on the x-axis in a simple bar chart with data read from a csv file. A really simple problem right? Well it happend that we spent quite some time in finding a simple and clean solution! We looked at several answers on Google and Stackoverflow, but nothing seemed to work. Finally I was able to came up with a solution that I will briefly explain here. (or you can look directly at this [[notebook]][notebook])

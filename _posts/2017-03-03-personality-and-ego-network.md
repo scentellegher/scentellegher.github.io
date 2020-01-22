@@ -4,6 +4,8 @@ title:  "Personality Traits and Ego-network Dynamics"
 date:   2017-03-03 00:00:00
 subtitle: Our latest work on how personality traits affect the way we manage our social relationships published on the PLOS ONE journal!
 categories: research
+img:  # Add image post (optional)
+tags: [research, social signatures, personality, big five] # add tag
 ---
 
 Me and my advisor **Bruno Lepri**, in collaboration with professors **Jari Saramäki** from Aalto University, Finland, and **Eduardo López** from George Mason University, US, have recently published a new paper on the PLOS ONE journal called **"Personality Traits and Ego-network Dynamics"**. [[link]][plos-pers].
