@@ -780,6 +780,7 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: fit-content;
 }
 
 h1 {
@@ -903,6 +904,11 @@ table tfoot td {
 
 .post, .article-page {
   background-color: #fff;
+}
+
+.article-page {
+  background-color: #fff;
+  max-width: 100%;
 }
 
 .article-page a {
