@@ -1,0 +1,65 @@
+---
+layout: default
+---
+
+<aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/images/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
+      </div>
+      <div class="author-name">{{site.author}}</div>
+      <p>{{site.about-author}}</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        {% if site.social-twitter %}
+          <li><a id='twitter' href="https://twitter.com/{{ site.social-twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        {% else %}
+          <li><a id='twitter' href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        {% endif %}
+        {% if site.social-github %}
+          <li class="github"><a id='github' href="http://github.com/{{site.social-github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+        {% else %}
+          <li class="github"><a id='github' href="http://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+        {% endif %}
+        {% if site.social-linkedin %}
+          <li class="linkedin"><a id='linkedin' href="https://in.linkedin.com/in/{{site.social-linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        {% else %}
+          <li class="linkedin"><a id='linkedin' href="https://in.linkedin.com/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        {% endif %}
+        <li><a id='cv' href="{{ site.baseurl }}/assets/cv/simone_centellegher_cv.pdf" target="_blank"><i class="fa fa-file-text-o"></i></a></li>
+        <li class="scholar"><a id='scholar' href="{{site.social-scholar}}" target="_blank"><i class="fa fa-google"></i></a></li>
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>{{site.time | date: '%Y'}} &copy; {{site.author}}</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  <div class="wrap-content">
+    <div class='cookie-policy'>
+      <h1 style="color: #41b3a3">COOKIE POLICY</h1>
+      <p> 
+        This website uses cookies. These are small text files that your computer saves when you use this website. For more information about what is a cookie visit this <a href='https://www.cookiesandyou.com/' target="_blank">page</a>. </br>
+        By using cookies we can offer you the best user experience. With cookies we can:
+      </p>
+      <ul>
+        <li>Continuously optimise our website</li>
+        <li>Measure and improve the performance of our site</li>
+        <li>Understand which pages are the most visited and see how visitors move around the website</li>
+      </ul>
+
+      <h3>Google Analytics (Google Inc.)</h3>
+      <p>This website uses Google Analytics for statistical purposes.
+
+        Google Analytics is a web analysis service provided by Google Inc. (“Google”). Google utilizes the Data collected to track and examine the use of this website, to prepare reports on its activities and share them with other Google services. Google may use the Data collected to contextualize and personalize the ads of its own advertising network. </br>
+        For more information: <a href='https://policies.google.com/privacy' target="_blank">Privacy Policy</a> - <a href='https://tools.google.com/dlpage/gaoptout' target="_blank">Opt Out</a>
+      </p>
+    </div>
+  </div>
+</div>

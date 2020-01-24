@@ -1163,6 +1163,21 @@ footer .copyright {
   color: #a0a0a0;
 }
 
+.cookie-policy{
+  padding: 30px;
+}
+
+.cookie-policy a{
+  color: #41b3a3;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.cookie-policy a:hover {
+  color: #4BC9B5;
+  text-decoration: underline;
+}
+
 .image-wrapper {
     font-family: Arial,sans-serif;
     font-size: 12px;

@@ -5,7 +5,7 @@ date:   2019-01-09 00:00:00
 subtitle: Our latest work "Mobile Money&#58; Understanding and Predicting its Adoption and Use in a Developing Economy" published in PACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT)
 categories: research
 img:  # Add image post (optional)
-tags: [research, mobile money, call detail records, m-pesa] # add tag
+tags: [research, mobile money, m-pesa] # add tag
 ---
 
 During my summer internship at Vodafone Research, London, I had the possibility to work on the interesting topic of mobile money, that led to our recently published paper called **"Mobile Money: Understanding and Predicting its Adoption and Use in a Developing Economy"**. [[full_paper]][imwut-mobile]

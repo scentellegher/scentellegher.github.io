@@ -6,7 +6,10 @@
   <div class="wrapper">
     {{ content }}
   </div>
+
+  {% if page.url != "/cookie-policy.html" %}
+    {% include cookie-consent.html %}
+  {% endif %}
   
-  {% include analytics.html %}
 </body>
 </html>

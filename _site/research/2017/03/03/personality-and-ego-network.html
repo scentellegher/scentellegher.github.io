@@ -63,7 +63,7 @@
 
 	<meta name="description" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 	<meta property="og:image" content="">
 	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
@@ -81,6 +81,10 @@
 	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
 	<!-- Styles -->
 	<link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- TEST BANNER -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+
 </head>
 
 <body>
@@ -207,7 +211,7 @@ Experience trait, where <strong>people that are willing to try new experiences e
 
 <div class="image-wrapper">
     
-        <img src="//assets/images/post/2017_03_03_openness_turnover.png" width="" height="" alt="" />
+        <img src="/assets/images/post/2017_03_03_openness_turnover.png" width="" height="" alt="" />
     
     
         <p class="image-caption">Fig 1. Openness to Experience and network turnover. Individuals who are more open to experience show a higher turnover as compared to the lowest-scoring 25%. Left:  the estimated probability density functions of the distributions of network turnover in egocentric networks.  Right:  violin plots of the same distributions.</p>
@@ -222,7 +226,7 @@ The resulting matrix now contains the alters rank dynamics represented as probab
 
 <div class="image-wrapper">
     
-        <img src="//assets/images/post/2017_03_03_pers_population.png" width="500" height="auto" alt="" />
+        <img src="/assets/images/post/2017_03_03_pers_population.png" width="500" height="auto" alt="" />
     
     
         <p class="image-caption">Fig 2. The normalized transition matrix for the entire population. Looking at the diagonal of the transition matrix, it is possible to notice that the top positions are more stable with respect to low-ranked positions</p>
@@ -236,7 +240,7 @@ more frequently, such as for example family members, and these relationships are
 
 <div class="image-wrapper">
     
-        <img src="//assets/images/post/2017_03_03_openess_rank.png" width="" height="" alt="" />
+        <img src="/assets/images/post/2017_03_03_openess_rank.png" width="" height="" alt="" />
     
     
         <p class="image-caption">Fig 3. Top row: the transition matrices for the subgroups of individuals with high and low scores in the Openness to Experience personality trait. It is possible to observe that the subgroup of people that display higher scores shows a higher spread with respect to the opposite subgroup, where the “heat” is more concentrated around the diagonal. Bottom  row:  The  2-dimensional  kernel density estimation plots emphasize the fact the rank variations inside the group of people with high scores in the Openness to Experience trait are larger with respect to the opposite subgroup.</p>
@@ -289,15 +293,102 @@ more frequently, such as for example family members, and these relationships are
 </div>
 
   </div>
-  
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-92905730-1', 'auto');
-  ga('send', 'pageview');
-</script> <!-- End Analytics -->
 
+  
+    <!-- taken from https://www.osano.com/cookieconsent/documentation/javascript-api/ -->
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+  }
+
+  var loadGoogleAnalytics = function(){
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-92905730-1', 'auto');
+    ga('send', 'pageview');
+  };
+  
+  window.addEventListener("load", function(){
+  	cookieconsent.initialise({
+        type: 'info',
+        theme: 'classic',
+        revokable: true,
+        palette: {
+          "popup": { "background": "#252e39", "text": "#ffffff" },
+          "button": { "background": "#56cbdb", "text": "#ffffff" },
+        },
+        content: content_ = {
+          message: "This site uses cookies from Google to deliver its services, to personalise ads and to analyse traffic. Information about your use of this site is shared with Google. By using this site, you agree to its use of cookies. If you want to learn more or withdraw your consent please click on ",
+                allow: 'Allow',
+                link: "Read More",
+                href: 'http://localhost:4000/cookie-policy.html',
+                target: '_blank',
+        },
+        law: {
+          regionalLaw: false,
+      	},
+  		location: true,
+      
+      onPopupOpen: function () {
+        console.log("popup opened");
+        console.log("#######"+window.location.pathname);
+        // show shaded div
+        if(window.location.pathname != '/cookie-policy.html'){
+          var div = document.createElement('div');
+          div.setAttribute("id", "shade-region");
+          div.style.position = 'fixed';
+          div.style.width = '100%';
+          div.style.height = '100%';
+          div.style.top = 0;
+          div.style.opacity = 0.7;
+          div.style.background = '#000';
+          document.body.appendChild(div);
+        }
+      },
+
+      onPopupClose: function () {
+        if(window.location.pathname != '/cookie-policy.html'){
+          var element = document.getElementById("shade-region");
+          element.parentNode.removeChild(element);
+          console.log("popup closed");
+        }
+      },
+      
+      onInitialise: function (status) {
+        if(this.hasConsented()){
+          console.log("Consented! Load analytics");
+          loadGoogleAnalytics();
+        }
+      },
+
+  		onStatusChange: function(status, chosenBefore) {
+    			if(this.hasConsented()){
+            console.log("Consented! Enable analytics");
+            window['ga-disable-UA-92905730-1'] = false;
+      			loadGoogleAnalytics();
+      		} else {
+            console.log("Denied! Disable and delete analytics");
+            window['ga-disable-UA-92905730-1'] = true;
+            deleteAllCookies()
+      		}
+  		}
+
+	}); 
+  });
+
+</script>
+  
+  
 </body>
 </html>
