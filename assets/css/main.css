@@ -1178,6 +1178,28 @@ footer .copyright {
   text-decoration: underline;
 }
 
+.ads-sidebar{
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #a0a0a0;
+  background-color: #eeeeee;
+}
+
+.ads-wrapper{
+  background-color:yellow;
+}
+
+.ads-content{
+
+}
+
+.ads-text{
+  font-size: 12px;
+  color: #757575 ;
+  text-align: center;
+}
+
 .image-wrapper {
     font-family: Arial,sans-serif;
     font-size: 12px;
