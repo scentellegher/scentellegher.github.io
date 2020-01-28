@@ -17,7 +17,7 @@ $$PC_1 = w_{11}X_1 + w_{12}X_2 + ... + w_{1p}X_p$$
 
 The first principal component $$PC_1$$ represents the component that retains the maximum variance of the data. $$\mathbf{w_1}$$ corresponds to an **eigenvector** of the covariance matrix 
 
-$$\mathbf{S} = \frac{1}{N-1}\mathbf{X}^\top \mathbf{X}$$ 
+$$\mathbf{\Sigma} = \frac{1}{N-1}\mathbf{X}^\top \mathbf{X}$$ 
 
 and the elements of the eigenvector $$w_{1j}$$, and are also known as **loadings**.
 
@@ -75,7 +75,7 @@ Standardized PCs are given by $$\sqrt{N-1}\mathbf{U}$$.
 
 As we have seen before, the covariance matrix is defined as  
 
-$$\frac{1}{N-1}\mathbf{X}^\top \mathbf{X} = \mathbf{V}\frac{\mathbf{S}^2}{N-1}\mathbf{V}^\top=\mathbf{VEV}^\top$$
+$$\mathbf{\Sigma} =\frac{1}{N-1}\mathbf{X}^\top \mathbf{X} = \mathbf{V}\frac{\mathbf{S}^2}{N-1}\mathbf{V}^\top=\mathbf{VEV}^\top$$
   
 This means that the principal axes $$\mathbf{V}$$ are eigenvectors of the covariance matrix and $$\mathbf E=\frac{\mathbf S^2}{N-1}$$ are its eigenvalues.  
 
@@ -85,7 +85,7 @@ $$Cov(\mathbf{X}, \mathbf{Y}) = \frac{\mathbf{X}^\top \mathbf{Y}}{N-1}$$
 
 In our case, $$\mathbf{X}$$ contains the original variables, and $$\mathbf{Y}$$ contains the standardized principal components, so  
 
-$$ \frac{\mathbf{X}^\top(\sqrt{N-1}\mathbf{U})}{N-1} = \frac{\mathbf{V}\mathbf{S}\mathbf{U}^\top\mathbf{U}}{\sqrt{N-1}} = \mathbf{V}\frac{\mathbf{S}}{\sqrt{N-1}}=\mathbf{V}\sqrt{\mathbf E}=\mathbf{L} $$ 
+$$Cov(\mathbf{X}, \mathbf{Y}) = \frac{\mathbf{X}^\top(\sqrt{N-1}\mathbf{U})}{N-1} = \frac{\mathbf{V}\mathbf{S}\mathbf{U}^\top\mathbf{U}}{\sqrt{N-1}} = \mathbf{V}\frac{\mathbf{S}}{\sqrt{N-1}}=\mathbf{V}\sqrt{\mathbf E}=\mathbf{L} $$ 
 
 (**Note**: derivation adapted from [here][stats-stack]).
 
