@@ -47,7 +47,7 @@ As you can see, the standard matplotlib style is pretty basic and there is a lot
 Now, I will illustrate the main steps I used to improve the rendering of our expenses plot. If you want to skip the explaination, you can find the full code at the end of this post.
 
 1. **Change font**
-First, we will change the fonts of the plot. If the font you specify is not available in your system, you can readthe [[blog post]][fonts] I wrote a while back explaining how to install new custom fonts in matplotlib.
+First, we will change the fonts of the plot. If the font you specify is not available in your system, you can read the [[blog post]][fonts] I wrote a while back explaining how to install new custom fonts in matplotlib.
 ```python
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = 'Helvetica'
@@ -88,13 +88,15 @@ ax.set_ylabel('')
 In the last step we choose a different style for the axis spines.
 ```python
 # change the style of the axis spines
-ax.spines['top'].set_color('none')
-ax.spines['right'].set_color('none')
-ax.spines['left'].set_smart_bounds(True)
-ax.spines['bottom'].set_smart_bounds(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_bounds((1, len(my_range)))
+ax.set_xlim(0,25)
+# add some space between the axis and the plot
+ax.spines['left'].set_position(('outward', 8))
+ax.spines['bottom'].set_position(('outward', 5))
 ```
 <img src="/assets/images/post/2018_10_10_hist_smart_bound.png" width="400"/>
-**Tip**: if the *set_smart_bounds()* method does not add the final tick that closes the x-axis or y-axis spine, just plot a dot with 0 size at the needed coordinates!
 
 That's it! With few simple changes we have considerably improved the rendering of of plot!
 Here you can find the final notebook containing also a version with a vertical bar plot [[notebook]][notebook]
@@ -151,14 +153,14 @@ plt.yticks(my_range, df.index)
 fig.text(-0.23, 0.96, 'Transaction Type', fontsize=15, fontweight='black', color = '#333F4B')
 
 # change the style of the axis spines
-ax.spines['top'].set_color('none')
-ax.spines['right'].set_color('none')
-ax.spines['left'].set_smart_bounds(True)
-ax.spines['bottom'].set_smart_bounds(True)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 
-# set the spines position
-ax.spines['bottom'].set_position(('axes', -0.04))
-ax.spines['left'].set_position(('axes', 0.015))
+ax.spines['left'].set_bounds((1, len(my_range)))
+ax.set_xlim(0,25)
+
+ax.spines['left'].set_position(('outward', 8))
+ax.spines['bottom'].set_position(('outward', 5))
 
 plt.savefig('hist2.png', dpi=300, bbox_inches='tight')
 ```
