@@ -46,14 +46,14 @@ As you can see, the standard matplotlib style is pretty basic and there is a lot
 
 Now, I will illustrate the main steps I used to improve the rendering of our expenses plot. If you want to skip the explaination, you can find the full code at the end of this post.
 
-1. **Change font**
+1. **Change font.**
 First, we will change the fonts of the plot. If the font you specify is not available in your system, you can read the [[blog post]][fonts] I wrote a while back explaining how to install new custom fonts in matplotlib.
 ```python
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = 'Helvetica'
 ```
 
-2. **Set styles for axes**
+2. **Set styles for axes.**
 The next aesthetic improvement regards the style of the chart axis. In order to make them nicer, we will set the axis color to a dark grey and we will reduce the width of the axis.
 ```python
 plt.rcParams['axes.edgecolor']='#333F4B'
@@ -62,7 +62,7 @@ plt.rcParams['xtick.color']='#333F4B'
 plt.rcParams['ytick.color']='#333F4B'
 ```
 
-3. **Create the actual bar plot**
+3. **Create the actual bar plot.**
 Now we need to plot the actual bar plot! First we create a numeric placeholder for the y-axis.
 ```python
 my_range=list(range(1,len(df.index)+1))
@@ -78,13 +78,15 @@ Similarly to a lollipop plot, we add for each expense type a dot at the level of
 plt.plot(df['percentage'], my_range, "o", markersize=5, color='#007acc', alpha=0.6)
 ```
 <img src="/assets/images/post/2018_10_10_hist_dot.png" width="250"/>
-4. **Change the lables style**
+
+4. **Change the lables style.**
 ```python
 # set labels style
 ax.set_xlabel('Percentage', fontsize=15, fontweight='black', color = '#333F4B')
 ax.set_ylabel('')
 ```
-5. **Change the style of the axis spines**
+
+5. **Change the style of the axis spines.**
 In the last step we choose a different style for the axis spines.
 ```python
 # change the style of the axis spines
