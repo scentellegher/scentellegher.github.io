@@ -5,7 +5,7 @@ date:   2021-03-23 00:00:00
 subtitle: How to compute the great-circle distance between two GPS points with PySpark without using UDFs.
 categories: programming
 img:  # Add image post (optional)
-tags: [pyspark, spatial data, programming] # add tag
+tags: [pyspark, spatial data, programming, great-circle distance, haversine distance] # add tag
 ---
 
 Suppose we want to compute the distance between millions of GPS points (lat, lon) with PySpark.  
@@ -39,6 +39,3 @@ def distance(lat_p1, lon_p1, lat_p2, lon_p2):
 
 
 [geopy]: https://pypi.org/project/geopy/
-
-[benchmark_udfs]: https://databricks.com/blog/2017/10/30/introducing-vectorized-udfs-for-pyspark.html
-
