@@ -30,7 +30,6 @@ Computing the radius of gyration of thousands of individuals is fairly easy and 
 
 Here the PySpark code to compute the radius of gyration:
 
-
 ```python
 w = Window().partitionBy('userId')
 
