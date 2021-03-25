@@ -14,7 +14,9 @@ One source of data that it is possible to obtain from mobile phones is location 
 ### Radius of gyration
 A well know metric used to study the characteristic travel distance covered by individuals is the radius of gyration, which measures how far an individual moves around its center of mass [^2]. It is defined as:
 
-$$r_g = \sqrt{\frac{1}{N} \sum_{i \in L} n_i (r_i - r_{cm})^2}$$
+$$
+r_g = \sqrt{\frac{1}{N} \sum_{i \in L} n_i (r_i - r_{cm})^2}
+$$
 
 where: 
 * \\(N\\) is the total number of visits (or total time spent) a particular individual made to all his/her visited locations \\(L\\)
@@ -23,7 +25,9 @@ where:
 * \\(r_i \\) is the location's GPS position recorded as latitude and longitude,
 * \\(r_{cm} \\) is the center of mass of the trajectories defined as:
 
-$$r_{cm} = \frac{1}{N} \sum_{i=1}^{N} r_i$$
+$$
+r_{cm} = \frac{1}{N} \sum_{i=1}^{N} r_i
+$$
 
 
 Computing the radius of gyration of thousands of individuals is fairly easy and there are python libraries such as [scikit-mobility][scikit-mobility] that do the job for you. Plain python/pandas do not scale very well when you have to compute the radius of gyration for millions or hundreds of millions of individuals. To overcome this limitation, we can use [Apache Spark][spark], a distributed data processing framework that can quickly perform tasks on very large data sets in a distributed fashion.
