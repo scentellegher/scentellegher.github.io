@@ -2,13 +2,13 @@
 layout: post
 title:  "Add custom fonts to Matplotlib"
 date:   2018-05-02 00:00:00
-subtitle: How to easily install a custom font in Matplotlib
+subtitle: How to easily install and use a custom font in Matplotlib
 categories: visualization
 img:  # Add image post (optional)
 tags: [custom fonts, matplotlib, visualization] # add tag
 ---
 
-This is step by step guide to add a custom font to Matplotlib. I have tested this procedure on both Linux and OS X machines.
+This is step by step guide to install and use a new font in Matplotlib. I have tested this procedure on both Linux and OS X machines.
 Suppose you are running a Jupyter notebook and you want to change the font of a plot. Here is what you need to do! 
 
 1. First, we need to install our custom font. Keep in mind that Matplotlib expects a font in *True Type* format (**.ttf**). For example, if we want to add the Helvetica font, we need to check if we have the font in .ttf format installed on our system otherwise we need to download it and install it.
@@ -65,6 +65,24 @@ If your font is not in the list, you need to copy your custom font in the system
 * **/usr/share/fonts/truetype** in Linux
 
 and run again the commands from step 2 to 4.
+
+### Add a custom font without installing it
+It is possible to use a custom font without installing it in your operating system.  
+First we download our font (again as an example we will use Comic Sans), and then we save it somewhere on the disk (**path/to/font/**).  
+Then we can run the following code to use our choosen font:
+
+```python
+from matplotlib import font_manager
+
+font_dirs = ['path/to/font/']
+font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
+
+for font_file in font_files:
+    font_manager.fontManager.addfont(font_file)
+
+# set font
+plt.rcParams['font.family'] = 'Comic Sans'
+```
 
 You can see the complete code in this [[notebook]][notebook]
 
