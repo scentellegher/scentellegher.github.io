@@ -22,7 +22,7 @@ social-cv:
 # discus-identifier: mr-brown # add your discus identifier
 
 # Tracker
-analytics: UA-92905730-1 # Google Analytics
+#analytics: UA-92905730-1 # Google Analytics
 
 # Build Settings
 markdown: kramdown
