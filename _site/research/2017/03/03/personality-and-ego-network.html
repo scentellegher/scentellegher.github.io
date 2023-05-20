@@ -82,12 +82,11 @@
 	<!-- Styles -->
 	<link rel="stylesheet" href="/assets/css/main.css">
   <!-- MathJax -->
-  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <!-- Cookie banner -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-  <!-- AdSense -->
-  <script data-ad-client="ca-pub-2550557957905145" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- Site verification -->
   <meta name="google-site-verification" content="sZB103JolPNU6L9ptJEZyy-OLhykJGu3zKyjQb7FVuo" />
 
@@ -120,15 +119,6 @@
     </ul>
   </div>  -->
 
-  <!-- <div class="ads-sidebar">
-
-  <div class="ads-wrapper">
-    <div class="ads-content">
-    </div>
-   
-  </div>
-
-</div> -->
 
   <footer>
     <section class="contact">
@@ -154,7 +144,7 @@
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
-      <p>2020 &copy; Simone Centellegher</p>
+      <p>2023 &copy; Simone Centellegher</p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->
@@ -194,10 +184,10 @@
 
 <p>In this work we were interested in understanding whether and how personality traits affect the way we manage our social relationships. As we know, we interact with a wide network of people on a daily basis, and these social relationships play an important role in our lives. The problem is that there are costs in their maintenance.</p>
 
-<p>But how individuals’ personality traits affect this picture? In order to find an answer, we combined detailed mobile phone call records with personality traits scores collected by means of surveys, from participants of the <strong>Mobile Territorial Lab (MTL)</strong> study<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>.
+<p>But how individuals’ personality traits affect this picture? In order to find an answer, we combined detailed mobile phone call records with personality traits scores collected by means of surveys, from participants of the <strong>Mobile Territorial Lab (MTL)</strong> study<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.
 The MTL was a living laboratory that took place in Trento, Italy, in collaboration with <strong>Fondazione Bruno Kessler (FBK)</strong>, <strong>MIT</strong>, <strong>TIM</strong> and <strong>Telefónica</strong>, and observed the lives of 142 parents through multiple channels for more than two years. The data was collected from smartphones, questionnaires and experience sampling probes. In particular, they tracked social interactions (e.g. call and SMS communications), mobility routines and spending patterns. The data was than used to create a multi-layered view of the lives of the study participants.</p>
 
-<p>We modeled the patterns of mobile phone interactions of individuals as <strong>social signatures</strong> defined by Saramäki et al.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> as</p>
+<p>We modeled the patterns of mobile phone interactions of individuals as <strong>social signatures</strong> defined by Saramäki et al.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> as</p>
 <blockquote>
   <p>“<em>[…] the way that egos divide their communication efforts among alters and how persistent the observed patterns are over time.</em>”</p>
 </blockquote>
@@ -270,13 +260,13 @@ more frequently, such as for example family members, and these relationships are
 
 <p>In this post I have briefly presented some of the results of our study, omitting a lot of details and the technical parts. If you are interested, you can find all the details and the results in the paper, freely accessible <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0173110">[here]</a>.</p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p><em>Centellegher, S., De Nadai, M., Caraviello, M., Leonardi, C., Vescovi, M., … &amp; Lepri, B.</em> <strong>“The Mobile Territorial Lab: a multilayered and dynamic view on parents’ daily lives.”</strong> EPJ Data Science 5.1 (2016): 3. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p><em>Centellegher, S., De Nadai, M., Caraviello, M., Leonardi, C., Vescovi, M., … &amp; Lepri, B.</em> <strong>“The Mobile Territorial Lab: a multilayered and dynamic view on parents’ daily lives.”</strong> EPJ Data Science 5.1 (2016): 3. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:2">
-      <p><em>Saramäki, J., Leicht, E. A., López, E., Roberts, S. G., Reed-Tsochas, F., &amp; Dunbar, R. I.</em> <strong>“Persistence of social signatures in human communication.”</strong> Proceedings of the National Academy of Sciences 111.3 (2014): 942-947. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:2" role="doc-endnote">
+      <p><em>Saramäki, J., Leicht, E. A., López, E., Roberts, S. G., Reed-Tsochas, F., &amp; Dunbar, R. I.</em> <strong>“Persistence of social signatures in human communication.”</strong> Proceedings of the National Academy of Sciences 111.3 (2014): 942-947. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -334,10 +324,23 @@ more frequently, such as for example family members, and these relationships are
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-92905730-1', 'auto');
+    ga('create', '', 'auto');
     ga('send', 'pageview');
   };
   
+
+  var loadGoogleAnalytics4 = function(){
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.googletagmanager.com/gtag/js?id=G-THFZKM9PJZ','ga');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-THFZKM9PJZ');
+  };
+
+
   window.addEventListener("load", function(){
   	cookieconsent.initialise({
         type: 'info',
@@ -386,18 +389,18 @@ more frequently, such as for example family members, and these relationships are
       onInitialise: function (status) {
         if(this.hasConsented()){
           console.log("Consented! Load analytics");
-          loadGoogleAnalytics();
+          loadGoogleAnalytics4();
         }
       },
 
   		onStatusChange: function(status, chosenBefore) {
     			if(this.hasConsented()){
             console.log("Consented! Enable analytics");
-            window['ga-disable-UA-92905730-1'] = false;
-      			loadGoogleAnalytics();
+            window['ga-disable-'] = false;
+      			loadGoogleAnalytics4();
       		} else {
             console.log("Denied! Disable and delete analytics");
-            window['ga-disable-UA-92905730-1'] = true;
+            window['ga-disable-'] = true;
             deleteAllCookies()
       		}
   		}
