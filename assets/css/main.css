@@ -974,6 +974,10 @@ table tfoot td {
   background-color: #ffffff;
 }
 
+.bmc{
+  text-align: center;
+}
+
 .about {
   margin: 0 0 40px;
   text-align: center;
